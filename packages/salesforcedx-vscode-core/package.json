@@ -536,6 +536,10 @@
         },
         {
           "command": "sfdx.force.diff",
+          "when": "sfdx:project_opened"
+        },
+        {
+          "command": "sfdx.force.folder.diff",
           "when": "false"
         },
         {
