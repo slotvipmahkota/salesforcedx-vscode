@@ -2,6 +2,10 @@
   "name": "salesforcedx-vscode",
   "repository": "forcedotcom/salesforcedx-vscode",
   "license": "BSD-3-Clause",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "engines": {
     "node": ">=14.16.0"
   },
@@ -39,7 +43,8 @@
     "vsce": "1.103.1",
     "vscode-test": "1.6.1",
     "webpack": "4.30.0",
-    "webpack-cli": "3.3.12"
+    "webpack-cli": "3.3.12",
+    "yarn": "1.22.18"
   },
   "scripts": {
     "postinstall": "lerna bootstrap --no-ci -- --no-package-lock && node scripts/reformat-with-prettier && npm run check:peer-deps",
