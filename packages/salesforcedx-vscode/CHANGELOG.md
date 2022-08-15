@@ -1,3 +1,11 @@
+# 55.9.0 - August 17, 2022
+
+## Fixed
+
+#### salesforcedx-vscode-core
+
+- Move localization to correct file ([PR #4353](https://github.com/forcedotcom/salesforcedx-vscode/pull/4353))
+
 # 55.8.0 - August 4, 2022
 
 ## Added
