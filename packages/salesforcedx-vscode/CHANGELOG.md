@@ -1,3 +1,11 @@
+# 55.10.0 - August 24, 2022
+
+## Fixed
+
+#### salesforcedx-vscode-core
+
+- FlushFilePath() with fix for Windows ([PR #4362](https://github.com/forcedotcom/salesforcedx-vscode/pull/4362))
+
 # 55.8.0 - August 4, 2022
 
 ## Added
