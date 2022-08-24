@@ -1,10 +1,19 @@
-# 55.10.0 - August 24, 2022
+# 55.10.2022082401 - August 24, 2022
+
+## Pre-Release Beta
+
+This is an early release candidate, and may contain issues. If issues are discovered, please add issues to the discussion thread for this release.
 
 ## Fixed
 
 #### salesforcedx-vscode-core
 
-- FlushFilePath() with fix for Windows ([PR #4362](https://github.com/forcedotcom/salesforcedx-vscode/pull/4362))
+- We fixed an issue with an error message for the SObject refresh process being incorrectly displayed. ([PR #4353](https://github.com/forcedotcom/salesforcedx-vscode/pull/4353))
+- We re-fixed an issue where making only a case change when renaming an Apex class caused an error. ([PR #4362](https://github.com/forcedotcom/salesforcedx-vscode/pull/4362))
+
+#### salesforcedx-vscode-core, salesforcedx-sojbects-faux-gennerator, salesforcedx-vscode-apex, salesforcedx-utils-vscode, salesforcedx-vscode-apex-replay-debugger, salesforcedx-vscode-lightning, salesforcedx-vscode-lwc, salesforcedx-vscode-soql
+
+- We made some changes under the hood. ([PR #4342](https://github.com/forcedotcom/salesforcedx-vscode/pull/4342))
 
 # 55.8.0 - August 4, 2022
 
@@ -12,11 +21,11 @@
 
 #### salesforcedx-vscode-core
 
-- We added a notification that warns you about scratch org expiration in advance so that you can back up any relevant data  or settings. ([PR #4304](https://github.com/forcedotcom/salesforcedx-vscode/pull/4304))
+- We added a notification that warns you about scratch org expiration in advance so that you can back up any relevant data or settings. ([PR #4304](https://github.com/forcedotcom/salesforcedx-vscode/pull/4304))
 
 #### salesforcedx-vscode-core, salesforcedx-vscode-apex, salesforcedx-utils-vscode, salesforcedx-vscode-apex-replay-debugger
 
--  We added a setting that lets you choose the option to clear the current content of the output tab before a new command is executed. ([PR #4318](https://github.com/forcedotcom/salesforcedx-vscode/pull/4318))
+- We added a setting that lets you choose the option to clear the current content of the output tab before a new command is executed. ([PR #4318](https://github.com/forcedotcom/salesforcedx-vscode/pull/4318))
 
 # 55.7.0 - July 27, 2022
 
