@@ -11,10 +11,10 @@ shell.set('+v');
 function getReleaseType() {
   const releaseTypeIndex = process.argv.indexOf('-r');
   if (releaseTypeIndex > -1) {
-    if (!/patch|minor|major/.exec(`${process.argv[releaseTypeIndex + 1]}`)) {
+    if (!/patch|minor|major/beta/.exec(`${process.argv[releaseTypeIndex + 1]}`)) {
       console.error(
         `Release Type was specified (-r), but received invalid value ${process.argv[releaseTypeIndex + 1]}.
-        Accepted Values: 'patch', 'minor', or 'major'`
+        Accepted Values: 'patch', 'minor', 'major', or 'beta'`
       );
       process.exit(-1);
     }

@@ -77,7 +77,7 @@
       "label": "Create Release Branch",
       "command": "./scripts/create-release-branch-workflow.sh",
       "type": "shell",
-      "args": ["${input:circleCiId}", "${input:publishType}"]
+      "args": ["${input:publishType}"]
     },
     {
       "label": "Lint",
@@ -138,7 +138,7 @@
       "id": "publishType",
       "type": "pickString",
       "description": "Type of version to publish",
-      "options": ["patch", "minor", "major"],
+      "options": ["patch", "minor", "major", "beta"],
       "default": "minor"
     },
     {
