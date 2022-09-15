@@ -78,9 +78,9 @@ If there is a release with high-risk or large-scale changes, we can publish a pr
 
 ## Steps
 
-1. Create a release branch, and increment the version using Lerna, as shown in the `create-release-branch.js` file, starting at the creation of the release branch.
-2. For the version number, keep the minor version the same and set the patch to use the following format: year month day hour minute. For example, v55.11.202208260522.
-3. Push the branch to remote.
+1. Check out the latest on develop.
+2. Run the task `Create Release Branch` and select `Beta` as the option.
+3. Once the script runs, ensure the new branch was successfully pushed up to remote.
 4. From the Actions tab in Github select the workflow 'Publish Beta Release to Github Only'.
 5. Select 'Run Workflow', and run the workflow from the beta branch. The workflow can only be run someone with write privileges of this repo.
 6. The workflow will create the git tag, the release, and attach the individual VSIX files to the release where they can be downloaded and tested.
