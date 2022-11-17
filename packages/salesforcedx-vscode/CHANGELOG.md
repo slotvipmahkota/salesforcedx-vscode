@@ -1,3 +1,5 @@
+# 56.6.15 - November 19, 2022
+
 # 56.5.1 - November 9, 2022
 
 - We made some large updates to the Quick Start and Overviews section of our Apex Documentation. ([PR #4522](https://github.com/forcedotcom/salesforcedx-vscode/pull/4522))
