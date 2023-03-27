@@ -1,3 +1,359 @@
+# 57.8.0 - March 29, 2023
+
+## Added
+
+#### docs
+
+- Enable conflict detection on retrieve ([PR #3348](https://github.com/forcedotcom/salesforcedx-vscode/pull/3348))
+
+#### salesforcedx-sobjects-faux-generator
+
+- Define static representation of subset sobjects @W-8912349@ ([PR #3044](https://github.com/forcedotcom/salesforcedx-vscode/pull/3044))
+
+#### salesforcedx-utils-vscode
+
+- Changes to libraryCommandletExecutor interface to support cancellation ([PR #3054](https://github.com/forcedotcom/salesforcedx-vscode/pull/3054))
+
+- Set envar for cli logging ([PR #1915](https://github.com/forcedotcom/salesforcedx-vscode/pull/1915))
+
+#### salesforcedx-vscode-apex
+
+- Soql-in-apex support ([PR #3167](https://github.com/forcedotcom/salesforcedx-vscode/pull/3167))
+
+- New apex-jorje jar for Safe Navigation Operator changes ([PR #2507](https://github.com/forcedotcom/salesforcedx-vscode/pull/2507))
+
+#### salesforcedx-vscode-core
+
+- Added a setting to enable deploy and retrieve commands for source-tracked orgs ([PR #4006](https://github.com/forcedotcom/salesforcedx-vscode/pull/4006))
+
+- Add support for StandardValueSet ([PR #3992](https://github.com/forcedotcom/salesforcedx-vscode/pull/3992))
+
+- Enable conflict detection on retrieve ([PR #3348](https://github.com/forcedotcom/salesforcedx-vscode/pull/3348))
+
+- New conflict detection mechanism ([PR #3332](https://github.com/forcedotcom/salesforcedx-vscode/pull/3332))
+
+- Set cache key to type and fullName ([PR #3314](https://github.com/forcedotcom/salesforcedx-vscode/pull/3314))
+
+- Restructure sobject pipeline ([PR #3113](https://github.com/forcedotcom/salesforcedx-vscode/pull/3113))
+
+- Add diagnostics to Apex test run failures ([PR #2922](https://github.com/forcedotcom/salesforcedx-vscode/pull/2922))
+
+- Remove channelService from core extension ([PR #2853](https://github.com/forcedotcom/salesforcedx-vscode/pull/2853))
+
+- Show progress when installing dependencies ([PR #2563](https://github.com/forcedotcom/salesforcedx-vscode/pull/2563))
+
+- Adding functions feature flag @W-7958729@ ([PR #2572](https://github.com/forcedotcom/salesforcedx-vscode/pull/2572))
+
+- Show message if no default org is set when starting function ([PR #2560](https://github.com/forcedotcom/salesforcedx-vscode/pull/2560))
+
+- Update SOQL extension to new message structure in SOQL builder UI ([PR #2509](https://github.com/forcedotcom/salesforcedx-vscode/pull/2509))
+
+- New commands to delete/remove orgs ([PR #2523](https://github.com/forcedotcom/salesforcedx-vscode/pull/2523))
+
+- Adding codelens to invoke function from payload @W-8046500@ ([PR #2515](https://github.com/forcedotcom/salesforcedx-vscode/pull/2515))
+
+- Create functions project ([PR #2510](https://github.com/forcedotcom/salesforcedx-vscode/pull/2510))
+
+- Pull dependencies after Function creation @W-7958774@ ([PR #2470](https://github.com/forcedotcom/salesforcedx-vscode/pull/2470))
+
+#### salesforcedx-vscode-lwc
+
+- Add target and actiontype to js-meta ([PR #2933](https://github.com/forcedotcom/salesforcedx-vscode/pull/2933))
+
+#### salesforcedx-vscode-soql
+
+- When embedded in Apex load metadata from filesystem ([PR #3228](https://github.com/forcedotcom/salesforcedx-vscode/pull/3228))
+
+- Soql-in-apex support ([PR #3167](https://github.com/forcedotcom/salesforcedx-vscode/pull/3167))
+
+- Release ALL FIELDS feature ([PR #3229](https://github.com/forcedotcom/salesforcedx-vscode/pull/3229))
+
+- Improve support for relationship queries (nested SELECTs) ([PR #3134](https://github.com/forcedotcom/salesforcedx-vscode/pull/3134))
+
+- Display error to user when auth issue ([PR #3049](https://github.com/forcedotcom/salesforcedx-vscode/pull/3049))
+
+- Extract comments out of soql text before running query ([PR #2916](https://github.com/forcedotcom/salesforcedx-vscode/pull/2916))
+
+- Do not emit message from custom editor to webview if soql has not changed ([PR #2818](https://github.com/forcedotcom/salesforcedx-vscode/pull/2818))
+
+- New query command ([PR #2809](https://github.com/forcedotcom/salesforcedx-vscode/pull/2809))
+
+- Show api error when running query ([PR #2733](https://github.com/forcedotcom/salesforcedx-vscode/pull/2733))
+
+- Show api error when running query ([PR #2733](https://github.com/forcedotcom/salesforcedx-vscode/pull/2733))
+
+- Only activate with sfdx project ([PR #2708](https://github.com/forcedotcom/salesforcedx-vscode/pull/2708))
+
+- Soql grammar moved to apex-tmlanguage repo ([PR #2691](https://github.com/forcedotcom/salesforcedx-vscode/pull/2691))
+
+- Use sobject cache ([PR #2679](https://github.com/forcedotcom/salesforcedx-vscode/pull/2679))
+
+- Add extension icon ([PR #2631](https://github.com/forcedotcom/salesforcedx-vscode/pull/2631))
+
+- Add textmate grammar for soql files ([PR #2562](https://github.com/forcedotcom/salesforcedx-vscode/pull/2562))
+
+- Do SOQL model conversion outside of VS extension ([PR #2548](https://github.com/forcedotcom/salesforcedx-vscode/pull/2548))
+
+## Fixed
+
+#### docs
+
+- Changelog-auto generation ([PR #4752](https://github.com/forcedotcom/salesforcedx-vscode/pull/4752))
+
+- Fix typo ([PR #4086](https://github.com/forcedotcom/salesforcedx-vscode/pull/4086))
+
+- Disable retrieve conflict detection ([PR #3382](https://github.com/forcedotcom/salesforcedx-vscode/pull/3382))
+
+- Set release version to 51.14.0 ([PR #3258](https://github.com/forcedotcom/salesforcedx-vscode/pull/3258))
+
+- Denote that deploy and retrieve perf enhancements are on by default ([PR #3105](https://github.com/forcedotcom/salesforcedx-vscode/pull/3105))
+
+- Denote that deploy and retrieve perf enhancements are on by default ([PR #3105](https://github.com/forcedotcom/salesforcedx-vscode/pull/3105))
+
+- Update beta disclaimer for soql builder docs ([PR #2749](https://github.com/forcedotcom/salesforcedx-vscode/pull/2749))
+
+- Add SOQL Builder to doc site ([PR #2745](https://github.com/forcedotcom/salesforcedx-vscode/pull/2745))
+
+- Update beta disclaimer for soql builder docs ([PR #2749](https://github.com/forcedotcom/salesforcedx-vscode/pull/2749))
+
+- Add SOQL Builder to doc site ([PR #2745](https://github.com/forcedotcom/salesforcedx-vscode/pull/2745))
+
+- Added doc video for LWC local development ([PR #2596](https://github.com/forcedotcom/salesforcedx-vscode/pull/2596))
+
+- Allow deploying of all types for performance beta ([PR #2542](https://github.com/forcedotcom/salesforcedx-vscode/pull/2542))
+
+- Update video section in doc site ([PR #2537](https://github.com/forcedotcom/salesforcedx-vscode/pull/2537))
+
+- Update text for 'apex:test:run' command in VS Code ([PR #2220](https://github.com/forcedotcom/salesforcedx-vscode/pull/2220))
+
+- Testing Support for  Developer Docs ([PR #1765](https://github.com/forcedotcom/salesforcedx-vscode/pull/1765))
+
+- "Apex  Configure Exceptions" command is visible in non-sfdx projects ([PR #1533](https://github.com/forcedotcom/salesforcedx-vscode/pull/1533))
+
+#### salesforcedx-sobjects-faux-generator
+
+- Allow Event sobject generation  (#2821) ([PR #2490](https://github.com/forcedotcom/salesforcedx-vscode/pull/2490))
+
+- Create minimal sobject refresh on activation ([PR #2467](https://github.com/forcedotcom/salesforcedx-vscode/pull/2467))
+
+- Create minimal sobject refresh on activation ([PR #2467](https://github.com/forcedotcom/salesforcedx-vscode/pull/2467))
+
+#### salesforcedx-utils-vscode
+
+- Move channel service to utils package ([PR #2625](https://github.com/forcedotcom/salesforcedx-vscode/pull/2625))
+
+- Use webpack for salesforcedx-utils-vscode module  (#2656) ([PR #2655](https://github.com/forcedotcom/salesforcedx-vscode/pull/2655))
+
+- Use webpack for salesforcedx-utils-vscode module ([PR #2655](https://github.com/forcedotcom/salesforcedx-vscode/pull/2655))
+
+- Code changes needed for webpack on utils ([PR #2643](https://github.com/forcedotcom/salesforcedx-vscode/pull/2643))
+
+- Replace telemetry integration tests with unit tests ([PR #2638](https://github.com/forcedotcom/salesforcedx-vscode/pull/2638))
+
+#### salesforcedx-vscode
+
+- Changelog for v57.6.0 ([PR #4741](https://github.com/forcedotcom/salesforcedx-vscode/pull/4741))
+
+- Changelog v54.11.0 ([PR #4076](https://github.com/forcedotcom/salesforcedx-vscode/pull/4076))
+
+- Update release notes for 54.4.1 release ([PR #3917](https://github.com/forcedotcom/salesforcedx-vscode/pull/3917))
+
+- Changelog v49.13.0 ([PR #2603](https://github.com/forcedotcom/salesforcedx-vscode/pull/2603))
+
+- Add doc tweak to changelog ([PR #2592](https://github.com/forcedotcom/salesforcedx-vscode/pull/2592))
+
+#### salesforcedx-vscode-apex
+
+- Remove log4j from apex language server  (#3712) ([PR #3709](https://github.com/forcedotcom/salesforcedx-vscode/pull/3709))
+
+- Remove log4j from apex language server ([PR #3709](https://github.com/forcedotcom/salesforcedx-vscode/pull/3709))
+
+- Add aiKey to apex package ([PR #2882](https://github.com/forcedotcom/salesforcedx-vscode/pull/2882))
+
+- Update apex syntax highlighting for safe navigation operator ([PR #2557](https://github.com/forcedotcom/salesforcedx-vscode/pull/2557))
+
+- Create minimal sobject refresh on activation ([PR #2467](https://github.com/forcedotcom/salesforcedx-vscode/pull/2467))
+
+- Create minimal sobject refresh on activation ([PR #2467](https://github.com/forcedotcom/salesforcedx-vscode/pull/2467))
+
+- Apex  Extract Unary Expressions and disable extract for unresolved types ([PR #1427](https://github.com/forcedotcom/salesforcedx-vscode/pull/1427))
+
+- Update  Fix threading issues in CompilerService ([PR #1173](https://github.com/forcedotcom/salesforcedx-vscode/pull/1173))
+
+- Tokenizer ([PR #426](https://github.com/forcedotcom/salesforcedx-vscode/pull/426))
+
+- Update LSP jar with the following ([PR #376](https://github.com/forcedotcom/salesforcedx-vscode/pull/376))
+
+#### salesforcedx-vscode-apex-debugger
+
+- "Apex  Configure Exceptions" command is visible in non-sfdx projects ([PR #1533](https://github.com/forcedotcom/salesforcedx-vscode/pull/1533))
+
+#### salesforcedx-vscode-core
+
+- Changelog-auto generation ([PR #4752](https://github.com/forcedotcom/salesforcedx-vscode/pull/4752))
+
+- Reverted setting to enable deploy and retrieve commands for source-tracked orgs ([PR #4094](https://github.com/forcedotcom/salesforcedx-vscode/pull/4094))
+
+- Changed version of types/chai to 4.3.0 ([PR #4033](https://github.com/forcedotcom/salesforcedx-vscode/pull/4033))
+
+- Revert source-deploy-retrieve to previous version ([PR #3908](https://github.com/forcedotcom/salesforcedx-vscode/pull/3908))
+
+- Revert source-deploy-retireve to previous version ([PR #3908](https://github.com/forcedotcom/salesforcedx-vscode/pull/3908))
+
+- Upgrade to latest functions lib to fix regressions @W-10257676@ ([PR #3802](https://github.com/forcedotcom/salesforcedx-vscode/pull/3802))
+
+- Bump up functions-core version  (#3443) ([PR #3439](https://github.com/forcedotcom/salesforcedx-vscode/pull/3439))
+
+- Bump up functions-core version ([PR #3439](https://github.com/forcedotcom/salesforcedx-vscode/pull/3439))
+
+- Disable retrieve conflict detection ([PR #3382](https://github.com/forcedotcom/salesforcedx-vscode/pull/3382))
+
+- Correct response from CompositePostChecker ([PR #3378](https://github.com/forcedotcom/salesforcedx-vscode/pull/3378))
+
+- Remove scannedRemote and scannedLocal ([PR #3351](https://github.com/forcedotcom/salesforcedx-vscode/pull/3351))
+
+- Make input prompt persistent ([PR #3331](https://github.com/forcedotcom/salesforcedx-vscode/pull/3331))
+
+- Set release version to 51.14.0 ([PR #3258](https://github.com/forcedotcom/salesforcedx-vscode/pull/3258))
+
+- Remove file diff on folders @W-9166602@ ([PR #3251](https://github.com/forcedotcom/salesforcedx-vscode/pull/3251))
+
+- Account relationship share rules ([PR #3168](https://github.com/forcedotcom/salesforcedx-vscode/pull/3168))
+
+- Retrieving all components of org browser type ([PR #3158](https://github.com/forcedotcom/salesforcedx-vscode/pull/3158))
+
+- Move messages to the core module ([PR #3005](https://github.com/forcedotcom/salesforcedx-vscode/pull/3005))
+
+- Add applicationinsights dependency to core ([PR #2976](https://github.com/forcedotcom/salesforcedx-vscode/pull/2976))
+
+- Show telemetry message extension source ([PR #2894](https://github.com/forcedotcom/salesforcedx-vscode/pull/2894))
+
+- Diagnostics not clearing for apex execute ([PR #2674](https://github.com/forcedotcom/salesforcedx-vscode/pull/2674))
+
+- Change code lens text to "invoke" instead of "send request" ([PR #2642](https://github.com/forcedotcom/salesforcedx-vscode/pull/2642))
+
+- Switch to json schemas from schemas module ([PR #2502](https://github.com/forcedotcom/salesforcedx-vscode/pull/2502))
+
+- Property get undefined error on non-salesforce projects ([PR #2601](https://github.com/forcedotcom/salesforcedx-vscode/pull/2601))
+
+- J  Run and View SOQL Query Data ([PR #2565](https://github.com/forcedotcom/salesforcedx-vscode/pull/2565))
+
+- Manage org context through WorkspaceContext object ([PR #2549](https://github.com/forcedotcom/salesforcedx-vscode/pull/2549))
+
+- Allow deploying of all types for performance beta ([PR #2542](https://github.com/forcedotcom/salesforcedx-vscode/pull/2542))
+
+- Turning off functions by default @W-7958774@ ([PR #2500](https://github.com/forcedotcom/salesforcedx-vscode/pull/2500))
+
+- Function command palette changes ([PR #2496](https://github.com/forcedotcom/salesforcedx-vscode/pull/2496))
+
+- Update Org Browser labels, add missing types ([PR #2466](https://github.com/forcedotcom/salesforcedx-vscode/pull/2466))
+
+- Consume library version of apex:log:get in VS Code ([PR #2353](https://github.com/forcedotcom/salesforcedx-vscode/pull/2353))
+
+- Update text for 'apex:test:run' command in VS Code ([PR #2220](https://github.com/forcedotcom/salesforcedx-vscode/pull/2220))
+
+- Show push errors in problem view and output view ([PR #1117](https://github.com/forcedotcom/salesforcedx-vscode/pull/1117))
+
+- Enable Re-run commands to work with Test Sidebar ([PR #1135](https://github.com/forcedotcom/salesforcedx-vscode/pull/1135))
+
+- Show better error message for  Turn On Apex Debug Log for Replay Debugger when updating a trace flag that is missing a debug level ([PR #765](https://github.com/forcedotcom/salesforcedx-vscode/pull/765))
+
+- Update api used to get workspace path on deploy ([PR #738](https://github.com/forcedotcom/salesforcedx-vscode/pull/738))
+
+- Include deploy errors in problem view (deploy) ([PR #717](https://github.com/forcedotcom/salesforcedx-vscode/pull/717))
+
+- Turn On Apex Debug Log for Replay Debugger throws an error for non-scratch orgs ([PR #656](https://github.com/forcedotcom/salesforcedx-vscode/pull/656))
+
+- Add  Delete Source from Org command ([PR #604](https://github.com/forcedotcom/salesforcedx-vscode/pull/604))
+
+- Rename command to  Create Project with Manifest ([PR #548](https://github.com/forcedotcom/salesforcedx-vscode/pull/548))
+
+- Fix  Deploy This Source File To Org ([PR #537](https://github.com/forcedotcom/salesforcedx-vscode/pull/537))
+
+- Add ' Deploy Source to Org' command ([PR #531](https://github.com/forcedotcom/salesforcedx-vscode/pull/531))
+
+- Add  Authenticate an Org ([PR #523](https://github.com/forcedotcom/salesforcedx-vscode/pull/523))
+
+- Add  Create Change-set-based Project command ([PR #515](https://github.com/forcedotcom/salesforcedx-vscode/pull/515))
+
+- Add create; mention VF lang svr in ext pack README ([PR #233](https://github.com/forcedotcom/salesforcedx-vscode/pull/233))
+
+#### salesforcedx-vscode-lightning
+
+- Use webpack for salesforcedx-utils-vscode module  (#2656) ([PR #2655](https://github.com/forcedotcom/salesforcedx-vscode/pull/2655))
+
+- Use webpack for salesforcedx-utils-vscode module ([PR #2655](https://github.com/forcedotcom/salesforcedx-vscode/pull/2655))
+
+#### salesforcedx-vscode-lwc
+
+- Replace use of info message on js-meta lwc code ([PR #2777](https://github.com/forcedotcom/salesforcedx-vscode/pull/2777))
+
+- Revert label changes from PR 2670 ([PR #2705](https://github.com/forcedotcom/salesforcedx-vscode/pull/2705))
+
+- Move channel service to utils package ([PR #2625](https://github.com/forcedotcom/salesforcedx-vscode/pull/2625))
+
+- Use webpack for salesforcedx-utils-vscode module  (#2656) ([PR #2655](https://github.com/forcedotcom/salesforcedx-vscode/pull/2655))
+
+- Use webpack for salesforcedx-utils-vscode module ([PR #2655](https://github.com/forcedotcom/salesforcedx-vscode/pull/2655))
+
+- Testing Support for  Support internal workspace ([PR #2094](https://github.com/forcedotcom/salesforcedx-vscode/pull/2094))
+
+- Testing Support for  Add more automation coverage ([PR #1808](https://github.com/forcedotcom/salesforcedx-vscode/pull/1808))
+
+- Testing Support for  Test Explorer ([PR #1758](https://github.com/forcedotcom/salesforcedx-vscode/pull/1758))
+
+#### salesforcedx-vscode-replay-debugger
+
+- Replay debugger  Update the trigger parsing logic and add VF_AP… ([PR #281](https://github.com/forcedotcom/salesforcedx-vscode/pull/281))
+
+#### salesforcedx-vscode-soql
+
+- Remove excess telemetry ([PR #3789](https://github.com/forcedotcom/salesforcedx-vscode/pull/3789))
+
+- Fix soql build ([PR #3537](https://github.com/forcedotcom/salesforcedx-vscode/pull/3537))
+
+- Bump soql-language-server dep. Clear diagnostics ([PR #3306](https://github.com/forcedotcom/salesforcedx-vscode/pull/3306))
+
+- Soql builder - better align labels and inputs ([PR #3108](https://github.com/forcedotcom/salesforcedx-vscode/pull/3108))
+
+- Create new query command opens soql builder  (#3107) ([PR #3091](https://github.com/forcedotcom/salesforcedx-vscode/pull/3091))
+
+- Create new query command opens soql builder ([PR #3091](https://github.com/forcedotcom/salesforcedx-vscode/pull/3091))
+
+- Support defer attribute from webpack 5 ([PR #2975](https://github.com/forcedotcom/salesforcedx-vscode/pull/2975))
+
+- Allow user to select location and name when saving query results ([PR #2960](https://github.com/forcedotcom/salesforcedx-vscode/pull/2960))
+
+- SOQL  Update changelog ([PR #2930](https://github.com/forcedotcom/salesforcedx-vscode/pull/2930))
+
+- Improve code-completion on GROUP BY clause ([PR #2903](https://github.com/forcedotcom/salesforcedx-vscode/pull/2903))
+
+- Update fixes soql-tooling issue 120 ([PR #2885](https://github.com/forcedotcom/salesforcedx-vscode/pull/2885))
+
+- Do not show toggle command in palette ([PR #2867](https://github.com/forcedotcom/salesforcedx-vscode/pull/2867))
+
+- Disable remote query checks. Make it an experimental option ([PR #2847](https://github.com/forcedotcom/salesforcedx-vscode/pull/2847))
+
+- Fix local test environment ([PR #2857](https://github.com/forcedotcom/salesforcedx-vscode/pull/2857))
+
+- Fix bug causing soql builder does not show ([PR #2827](https://github.com/forcedotcom/salesforcedx-vscode/pull/2827))
+
+- Include the readme in the vsix ([PR #2742](https://github.com/forcedotcom/salesforcedx-vscode/pull/2742))
+
+- Parse uri for saved results as file ([PR #2732](https://github.com/forcedotcom/salesforcedx-vscode/pull/2732))
+
+- Prune and ignore files when packaging vsix ([PR #2695](https://github.com/forcedotcom/salesforcedx-vscode/pull/2695))
+
+- Include the readme in the vsix ([PR #2742](https://github.com/forcedotcom/salesforcedx-vscode/pull/2742))
+
+- Parse uri for saved results as file ([PR #2732](https://github.com/forcedotcom/salesforcedx-vscode/pull/2732))
+
+- Prune and ignore files when packaging vsix ([PR #2695](https://github.com/forcedotcom/salesforcedx-vscode/pull/2695))
+
+- Save Button Icons ([PR #2675](https://github.com/forcedotcom/salesforcedx-vscode/pull/2675))
+
+- Save Query Results JSON/CSV ([PR #2617](https://github.com/forcedotcom/salesforcedx-vscode/pull/2617))
+
 # 57.7.0 - March 22, 2023
 
 ## Added
