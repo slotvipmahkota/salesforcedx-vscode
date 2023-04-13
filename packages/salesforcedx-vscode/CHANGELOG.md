@@ -10,7 +10,7 @@
 
 - We removed legacy source tracking commands from the command palette. ([PR #4771](https://github.com/forcedotcom/salesforcedx-vscode/pull/4771))
 
-- We fixed an issue where retrieving the ExperiencePropertyType metadata type would throw an error. ([PR #4784](https://github.com/forcedotcom/salesforcedx-vscode/pull/4784))
+- We fixed an issue where retrieving the ExperiencePropertyType metadata type would throw an error. Thank you [Kaaviyan](https://github.com/Kaaviyan) for your PR. ([PR #4784](https://github.com/forcedotcom/salesforcedx-vscode/pull/4784), [PR #4761](https://github.com/forcedotcom/salesforcedx-vscode/pull/4761))
 
 #### salesforcedx-vscode-soql
 
