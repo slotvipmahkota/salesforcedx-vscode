@@ -1,3 +1,21 @@
+# 57.10.1 - April 13, 2023
+
+## Fixed
+
+#### salesforcedx-vscode-core
+
+- Right labels in org browser ([PR #4772](https://github.com/forcedotcom/salesforcedx-vscode/pull/4772))
+
+- Enable Source-Tracking Commands (Push*, Pull*, View Changes\*) for Source-Tracked Sandboxes ([PR #4755](https://github.com/forcedotcom/salesforcedx-vscode/pull/4755))
+
+- Remove legacy source tracking commands ([PR #4771](https://github.com/forcedotcom/salesforcedx-vscode/pull/4771))
+
+- Adds ExperiencePropertyType to the metadata dictionary([PR #4784](https://github.com/forcedotcom/salesforcedx-vscode/pull/4784))
+
+#### salesforcedx-vscode-soql
+
+- SOQL Builder saves blank files ([PR #4754](https://github.com/forcedotcom/salesforcedx-vscode/pull/4754))
+
 # 57.7.0 - March 22, 2023
 
 ## Added
