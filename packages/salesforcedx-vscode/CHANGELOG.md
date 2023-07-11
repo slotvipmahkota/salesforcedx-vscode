@@ -14,7 +14,7 @@
 
 #### salesforcedx-vscode-apex-replay-debugger
 
-- We made some changed under the hood. ([PR #4948](https://github.com/forcedotcom/salesforcedx-vscode/pull/4948))
+- We made some changes under the hood. ([PR #4948](https://github.com/forcedotcom/salesforcedx-vscode/pull/4948))
 
 #### salesforcedx-vscode-core
 
