@@ -4,11 +4,11 @@
 
 #### salesforcedx-vscode-lightning
 
-- We've made an update to the lightning language server version. ([PR #4964](https://github.com/forcedotcom/salesforcedx-vscode/pull/4964))
+- We made an update to the lightning language server version. ([PR #4964](https://github.com/forcedotcom/salesforcedx-vscode/pull/4964))
 
 #### salesforcedx-vscode-lwc
 
-- We've made an update to the lightning language server version. ([PR #4964](https://github.com/forcedotcom/salesforcedx-vscode/pull/4964))
+- We made an update to the lightning language server version. ([PR #4964](https://github.com/forcedotcom/salesforcedx-vscode/pull/4964))
 
 ## Fixed
 
