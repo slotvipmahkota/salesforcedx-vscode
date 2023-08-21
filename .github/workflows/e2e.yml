@@ -69,6 +69,7 @@ jobs:
         run: |
           npm install
           npm install eslint --global
+          npm init @eslint/config
         working-directory: salesforcedx-vscode-automation-tests
       - name: Install the SFDX CLI
         run: npm install -g sfdx-cli
