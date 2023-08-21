@@ -68,6 +68,7 @@ jobs:
       - name: Install Test Dependencies
         run: |
           npm install
+          npm install eslint --global
         working-directory: salesforcedx-vscode-automation-tests
       - name: Install the SFDX CLI
         run: npm install -g sfdx-cli
