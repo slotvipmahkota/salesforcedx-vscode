@@ -68,7 +68,6 @@ jobs:
       - name: Install Test Dependencies
         run: |
           npm install
-          code --install-extension dbaeumer.vscode-eslint
         working-directory: salesforcedx-vscode-automation-tests
       - name: Install the SFDX CLI
         run: npm install -g sfdx-cli
@@ -85,6 +84,9 @@ jobs:
             echo "The sfdx-cli installation could not be verified"
             exit 1
           fi
+      - name: Install ESLint VSCode extension
+        shell: bash
+        run: code --install-extension dbaeumer.vscode-eslint
       - name: Run headless test
         uses: coactions/setup-xvfb@b6b4fcfb9f5a895edadc3bc76318fae0ac17c8b3
         with:
