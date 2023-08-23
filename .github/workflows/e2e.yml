@@ -92,7 +92,6 @@ jobs:
           SFDX_AUTH_URL: ${{ secrets.SFDX_AUTH_URL_E2E }}
           ORG_ID: ${{ secrets.ORG_ID_E2E }}
         with:
-          shell: zsh
           run: |
             npm run setup
             npm run automation-tests
