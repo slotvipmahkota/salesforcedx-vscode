@@ -5,10 +5,13 @@
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
 
+import { channelService } from "./channel";
+
 export const ESLINT_NODEPATH_CONFIG = 'eslint.nodePath';
 export const LWC_EXTENSION_NAME = 'salesforcedx-vscode-lwc';
 export const VSCODE_LWC_EXTENSION_NAME = `salesforce.${LWC_EXTENSION_NAME}`;
 
 export const log = (message: string) => {
+  channelService.appendLine(message);
   console.log(message);
 };

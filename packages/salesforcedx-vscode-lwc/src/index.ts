@@ -49,6 +49,7 @@ function protocol2CodeConverter(value: string) {
 }
 
 export async function activate(extensionContext: ExtensionContext) {
+  log('!!!! salesforcedx-vscode-lwc/index.ts - enter activate()');
   const extensionHRStart = process.hrtime();
   log('Activation Mode: ' + getActivationMode());
   // Run our auto detection routine before we activate
