@@ -56,6 +56,7 @@ export class ForceLightningLwcStartExecutor extends SfdxCommandletExecutor<{}> {
   }
 
   public build(): Command {
+    console.log('forceLightningLwcStart.ts - enter build()');
     return (
       new SfdxCommandBuilder()
         .withDescription(commandName)
@@ -67,6 +68,7 @@ export class ForceLightningLwcStartExecutor extends SfdxCommandletExecutor<{}> {
   }
 
   public execute(response: ContinueResponse<{}>): void {
+    console.log('forceLightningLwcStart.ts - enter execute()');
     const startTime = process.hrtime();
     const cancellationTokenSource = new vscode.CancellationTokenSource();
     const cancellationToken = cancellationTokenSource.token;
@@ -182,6 +184,7 @@ export class ForceLightningLwcStartExecutor extends SfdxCommandletExecutor<{}> {
     serverStarted: boolean,
     exitCode: number | null | undefined
   ) {
+    console.log('forceLightningLwcStart.ts - enter handleErrors()');
     DevServerService.instance.clearServerHandler(serverHandler);
     if (!serverStarted && !cancellationToken.isCancellationRequested) {
       let message = nls.localize('force_lightning_lwc_start_failed');
@@ -211,6 +214,7 @@ export class ForceLightningLwcStartExecutor extends SfdxCommandletExecutor<{}> {
 }
 
 export async function forceLightningLwcStart() {
+  console.log('forceLightningLwcStart.ts - enter forceLightningLwcStart()');
   if (DevServerService.instance.isServerHandlerRegistered()) {
     const warningMessage = nls.localize(
       'force_lightning_lwc_start_already_running'

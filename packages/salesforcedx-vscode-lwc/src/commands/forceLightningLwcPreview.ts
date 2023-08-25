@@ -109,11 +109,13 @@ const sfdxMobilePreviewCommand = 'force:lightning:lwc:preview';
 const androidSuccessString = 'Launching... Opening Browser';
 
 export async function forceLightningLwcPreview(sourceUri: vscode.Uri) {
+  console.log('forceLightningLwcPreview.ts - enter forceLightningLwcPreview()');
   const preview = getPreview();
   preview(sourceUri);
 }
 
 export function getPreview() {
+  console.log('forceLightningLwcPreview.ts - enter getPreview()');
   if (isSFContainerMode()) {
     return lwcPreviewContainerMode;
   } else {
@@ -122,12 +124,14 @@ export function getPreview() {
 }
 
 function lwcPreviewContainerMode() {
+  console.log('forceLightningLwcPreview.ts - enter lwcPreviewContainerMode()');
   const message = nls.localize('force_lightning_lwc_preview_container_mode');
   vscode.window.showErrorMessage(message);
   return;
 }
 
 export async function lwcPreview(sourceUri: vscode.Uri) {
+  console.log('forceLightningLwcPreview.ts - enter lwcPreview()');
   const startTime = process.hrtime();
 
   if (!sourceUri) {
@@ -194,6 +198,7 @@ async function executePreview(
   componentName: string,
   resourcePath: string
 ) {
+  console.log('forceLightningLwcPreview.ts - enter executePreview()');
   const commandCancelledMessage = nls.localize(
     'force_lightning_lwc_operation_cancelled'
   );
@@ -263,6 +268,7 @@ async function startServer(
   componentName: string,
   startTime: [number, number]
 ) {
+  console.log('forceLightningLwcPreview.ts - enter startServer()');
   if (!DevServerService.instance.isServerHandlerRegistered()) {
     console.log(`${logName}: server was not running, starting...`);
     const preconditionChecker = new SfdxWorkspaceChecker();
@@ -298,6 +304,7 @@ async function startServer(
  * @returns the selected platform or undefined if no selection was made.
  */
 async function selectPlatform(): Promise<PreviewQuickPickItem | undefined> {
+  console.log('forceLightningLwcPreview.ts - enter selectPlatform()');
   const platformSelection = await vscode.window.showQuickPick(platformOptions, {
     placeHolder: nls.localize('force_lightning_lwc_platform_selection')
   });
@@ -314,6 +321,7 @@ async function selectPlatform(): Promise<PreviewQuickPickItem | undefined> {
 async function selectTargetDevice(
   platformSelection: PreviewQuickPickItem
 ): Promise<string | undefined> {
+  console.log('forceLightningLwcPreview.ts - enter selectTargetDevice()');
   const isAndroid = platformSelection.id === PreviewPlatformType.Android;
   const lastTarget = PreviewService.instance.getRememberedDevice(
     platformSelection.platformName
@@ -466,6 +474,7 @@ async function selectTargetApp(
   platformSelection: PreviewQuickPickItem,
   configFile: string | undefined
 ): Promise<string | undefined> {
+  console.log('forceLightningLwcPreview.ts - enter selectTargetApp()');
   let targetApp: string | undefined = 'browser';
   const items: vscode.QuickPickItem[] = [];
   const browserItem: vscode.QuickPickItem = {
@@ -539,6 +548,7 @@ async function executeMobilePreview(
   componentName: string,
   startTime: [number, number]
 ) {
+  console.log('forceLightningLwcPreview.ts - enter executeMobilePreview()');
   const isAndroid = platformSelection.id === PreviewPlatformType.Android;
 
   let commandBuilder = new SfdxCommandBuilder()
@@ -617,6 +627,7 @@ async function executeMobilePreview(
  * @returns the path to the folder containing the config file, or undefined if config file not found
  */
 export function getProjectRootDirectory(startPath: string): string | undefined {
+  console.log('forceLightningLwcPreview.ts - enter getProjectRootDirectory()');
   if (!fs.existsSync(startPath)) {
     return undefined;
   }
@@ -645,6 +656,7 @@ export function getProjectRootDirectory(startPath: string): string | undefined {
  * @returns path to a directory that is one level up, or undefined if cannot go one level up.
  */
 export function directoryLevelUp(directory: string): string | undefined {
+  console.log('forceLightningLwcPreview.ts - enter directoryLevelUp()');
   const levelUp = path.dirname(directory);
 
   if (levelUp === directory) {

@@ -15,6 +15,7 @@ const logName = 'force_lightning_lwc_open';
 const commandName = nls.localize('force_lightning_lwc_open_text');
 
 export async function forceLightningLwcOpen() {
+  console.log('forceLightningLwcOpen.ts - enter forceLightningLwcOpen()');
   const startTime = process.hrtime();
 
   if (DevServerService.instance.isServerHandlerRegistered()) {

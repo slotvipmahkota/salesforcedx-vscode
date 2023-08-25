@@ -29,6 +29,7 @@ function protocol2CodeConverter(value: string) {
 }
 
 export function createLanguageClient(serverPath: string): LanguageClient {
+  console.log('languageClient/index.ts - enter createLanguageClient()');
   // Setup the language server
   const debugOptions = { execArgv: ['--nolazy', '--inspect=6030'] };
   // If the extension is launched in debug mode then the debug server options are used

@@ -16,6 +16,7 @@ const logName = 'force_lightning_lwc_stop';
 const commandName = nls.localize('force_lightning_lwc_stop_text');
 
 export async function forceLightningLwcStop() {
+  console.log('forceLightningLwcStop.ts - enter forceLightningLwcStop()');
   const startTime = process.hrtime();
 
   try {
