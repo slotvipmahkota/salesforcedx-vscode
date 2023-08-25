@@ -19,6 +19,7 @@ export class DevServerService {
   private static _instance: DevServerService;
 
   public static get instance() {
+    console.log('devServerService.ts - enter instance()');
     if (DevServerService._instance === undefined) {
       DevServerService._instance = new DevServerService();
     }
@@ -29,24 +30,29 @@ export class DevServerService {
   private baseUrl: string = DEV_SERVER_DEFAULT_BASE_URL;
 
   public isServerHandlerRegistered() {
+    console.log('devServerService.ts - enter isServerHandlerRegistered()');
     return this.handlers.size > 0;
   }
 
   public registerServerHandler(handler: ServerHandler) {
+    console.log('devServerService.ts - enter registerServerHandler()');
     this.handlers.add(handler);
   }
 
   public clearServerHandler(handler: ServerHandler) {
+    console.log('devServerService.ts - enter clearServerHandler()');
     if (handler) {
       this.handlers.delete(handler);
     }
   }
 
   public getServerHandlers() {
+    console.log('devServerService.ts - enter getServerHandlers()');
     return [...this.handlers];
   }
 
   public async stopServer() {
+    console.log('devServerService.ts - enter stopServer()');
     if (this.handlers.size > 0) {
       const promises = [...this.handlers].map(handler => handler.stop());
       await Promise.all(promises);
@@ -58,10 +64,12 @@ export class DevServerService {
   }
 
   public getBaseUrl(): string {
+    console.log('devServerService.ts - enter getBaseUrl()');
     return this.baseUrl;
   }
 
   public setBaseUrlFromDevServerUpMessage(data: string) {
+    console.log('devServerService.ts - enter setBaseUrlFromDevServerUpMessage()');
     const sanitizedData = stripAnsi(data);
     if (sanitizedData.match(DEV_SERVER_BASE_URL_REGEX)) {
       this.baseUrl = sanitizedData.match(DEV_SERVER_BASE_URL_REGEX)![0];
@@ -69,6 +77,7 @@ export class DevServerService {
   }
 
   public getComponentPreviewUrl(componentName: string): string {
+    console.log('devServerService.ts - enter getComponentPreviewUrl()');
     return `${this.baseUrl}/${DEV_SERVER_PREVIEW_ROUTE}/${componentName}`;
   }
 }

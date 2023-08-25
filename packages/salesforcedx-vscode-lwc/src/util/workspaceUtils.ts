@@ -17,6 +17,7 @@ export class WorkspaceUtils {
   private static _instance: WorkspaceUtils;
 
   public static get instance() {
+    console.log('workspaceUtils.ts - enter instance()');
     if (WorkspaceUtils._instance === undefined) {
       WorkspaceUtils._instance = new WorkspaceUtils();
     }
@@ -24,14 +25,17 @@ export class WorkspaceUtils {
   }
 
   public init(extensionContext: ExtensionContext) {
+    console.log('workspaceUtils.ts - enter init()');
     this.extensionContext = extensionContext;
   }
 
   public getGlobalStore(): Memento | undefined {
+    console.log('workspaceUtils.ts - enter getGlobalStore()');
     return this.extensionContext && this.extensionContext.globalState;
   }
 
   public getWorkspaceSettings(): WorkspaceConfiguration {
+    console.log('workspaceUtils.ts - enter getWorkspaceSettings()');
     return workspace.getConfiguration('salesforcedx-vscode-lwc');
   }
 }

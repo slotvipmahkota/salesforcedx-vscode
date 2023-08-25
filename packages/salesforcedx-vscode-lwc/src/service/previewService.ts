@@ -15,6 +15,7 @@ export class PreviewService {
   private static _instance: PreviewService;
 
   public static get instance() {
+    console.log('previewService.ts - enter instance()');
     if (PreviewService._instance === undefined) {
       PreviewService._instance = new PreviewService();
     }
@@ -22,6 +23,7 @@ export class PreviewService {
   }
 
   public getRememberedDevice(platform: keyof typeof PlatformName): string {
+    console.log('previewService.ts - enter getRememberedDevice()');
     const store = WorkspaceUtils.instance.getGlobalStore();
     if (store === undefined) {
       return '';
@@ -34,6 +36,7 @@ export class PreviewService {
     platform: keyof typeof PlatformName,
     deviceName: string
   ): void {
+    console.log('previewService.ts - enter updateRememberedDevice()');
     const store = WorkspaceUtils.instance.getGlobalStore();
     if (store !== undefined) {
       store.update(`last${platform}Device`, deviceName);
@@ -41,12 +44,14 @@ export class PreviewService {
   }
 
   public isRememberedDeviceEnabled(): boolean {
+    console.log('previewService.ts - enter isRememberedDeviceEnabled()');
     return WorkspaceUtils.instance
       .getWorkspaceSettings()
       .get(this.rememberDeviceKey, false);
   }
 
   public getLogLevel(): string {
+    console.log('previewService.ts - enter getLogLevel()');
     return (
       WorkspaceUtils.instance.getWorkspaceSettings().get(this.logLevelKey) ||
       this.defaultLogLevel
