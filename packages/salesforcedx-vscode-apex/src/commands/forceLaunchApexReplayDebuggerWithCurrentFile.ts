@@ -82,7 +82,7 @@ async function getApexTestClassName(
 
   const testOutlineProvider = getTestOutlineProvider();
   await testOutlineProvider.refresh();
-  let testClassName = testOutlineProvider.getTestClassName(sourceUri);
+  const testClassName = testOutlineProvider.getTestClassName(sourceUri);
   // This is a little bizarre.  Intellisense is reporting that getTestClassName() returns a string,
   // but it actually it returns string | undefined.  Well, regardless, since flushFilePath() takes
   // a string (and guards against empty strings) using the Non-null assertion operator
