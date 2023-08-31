@@ -88,7 +88,7 @@ async function getApexTestClassName(
   // a string (and guards against empty strings) using the Non-null assertion operator
   // (https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-0.html#non-null-assertion-operator)
   // fixes the issue.
-  testClassName = fileUtils.flushFilePath(testClassName || '');
+  // testClassName = fileUtils.flushFilePath(testClassName || '');
 
   return testClassName;
 }
