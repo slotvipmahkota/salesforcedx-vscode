@@ -17,8 +17,8 @@ import { nls } from '../../messages';
 import { notificationService } from '../../notifications';
 import { telemetryService } from '../../telemetry';
 import { MetadataDictionary, workspaceUtils } from '../../util';
-import { PathStrategyFactory } from './sourcePathStrategies';
 import { logger } from '../../util/logger';
+import { PathStrategyFactory } from './sourcePathStrategies';
 
 type OneOrMany = LocalComponent | LocalComponent[];
 type ContinueOrCancel = ContinueResponse<OneOrMany> | CancelResponse;

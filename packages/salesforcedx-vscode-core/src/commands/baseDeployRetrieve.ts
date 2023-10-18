@@ -36,12 +36,12 @@ import { nls } from '../messages';
 import { componentSetUtils } from '../services/sdr/componentSetUtils';
 import { DeployQueue, sfdxCoreSettings } from '../settings';
 import { SfdxPackageDirectories } from '../sfdxProject';
+import { logger } from '../util/logger';
 import {
   createComponentCount,
   formatException,
   SfdxCommandletExecutor
 } from './util';
-import { logger } from '../util/logger';
 
 type DeployRetrieveResult = DeployResult | RetrieveResult;
 type DeployRetrieveOperation = MetadataApiDeploy | MetadataApiRetrieve;
