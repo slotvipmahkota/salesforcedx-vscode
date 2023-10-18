@@ -4,21 +4,21 @@
 
 #### salesforcedx-sobjects-faux-generator
 
-- Updates std sobjects in minSObjects.json ([PR #5125](https://github.com/forcedotcom/salesforcedx-vscode/pull/5125))
+- We added `Asset` and `Domain` objects to the current list of standard objects. ([PR #5125](https://github.com/forcedotcom/salesforcedx-vscode/pull/5125))
 
 #### salesforcedx-vscode-apex
 
-- Release 246 apex language server ([PR #5152](https://github.com/forcedotcom/salesforcedx-vscode/pull/5152))
+- We released a new version of the Apex Language Server. ([PR #5152](https://github.com/forcedotcom/salesforcedx-vscode/pull/5152))
 
 #### salesforcedx-vscode-core
 
-- Add missing label ([PR #5162](https://github.com/forcedotcom/salesforcedx-vscode/pull/5162))
+- We added missing label. ([PR #5162](https://github.com/forcedotcom/salesforcedx-vscode/pull/5162))
 
-- Upgrade language client to version 9 ([PR #5127](https://github.com/forcedotcom/salesforcedx-vscode/pull/5127))
+- We upgraded the VS Code language client to version 9. ([PR #5127](https://github.com/forcedotcom/salesforcedx-vscode/pull/5127))
 
 #### salesforcedx-vscode-lightning
 
-- Update aura html grammar scope ([PR #5159](https://github.com/forcedotcom/salesforcedx-vscode/pull/5159))
+- We changed the scope name of html grammar in the Aura extension so that `php` and html` code is correctly parsed and highlighted. ([PR #5159](https://github.com/forcedotcom/salesforcedx-vscode/pull/5159))
 
 # 59.0.0 - October 13, 2023
 
