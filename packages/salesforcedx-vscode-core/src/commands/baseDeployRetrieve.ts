@@ -41,6 +41,7 @@ import {
   formatException,
   SfdxCommandletExecutor
 } from './util';
+import { logger } from '../util/logger';
 
 type DeployRetrieveResult = DeployResult | RetrieveResult;
 type DeployRetrieveOperation = MetadataApiDeploy | MetadataApiRetrieve;
@@ -67,27 +68,34 @@ export abstract class DeployRetrieveExecutor<
   ): Promise<boolean> {
     let result: DeployRetrieveResult | undefined;
 
+    logger.debug('LibraryCommandletExecutor.run');
     try {
       const components = await this.getComponents(response);
+      logger.debug('LibraryCommandletExecutor.run 1');
       await componentSetUtils.setApiVersion(components);
+      logger.debug('LibraryCommandletExecutor.run 2');
       await componentSetUtils.setSourceApiVersion(components);
+      logger.debug('LibraryCommandletExecutor.run 3');
 
       this.telemetry.addProperty(
         TELEMETRY_METADATA_COUNT,
         JSON.stringify(createComponentCount(components))
       );
 
+      logger.debug('LibraryCommandletExecutor.run 4');
       result = await this.doOperation(components, token);
 
       const status = result?.response.status;
-
+      logger.debug('LibraryCommandletExecutor.run 5');
       return (
         status === RequestStatus.Succeeded ||
         status === RequestStatus.SucceededPartial
       );
     } catch (e) {
+      logger.debug('LibraryCommandletExecutor.run 6', { e });
       throw formatException(e);
     } finally {
+      logger.debug('LibraryCommandletExecutor.run 7');
       await this.postOperation(result);
     }
   }
@@ -233,9 +241,13 @@ export abstract class RetrieveExecutor<T> extends DeployRetrieveExecutor<T> {
     components: ComponentSet,
     token: vscode.CancellationToken
   ): Promise<RetrieveResult | undefined> {
+    logger.debug('doOperation');
     const projectPath = getRootWorkspacePath();
+    logger.debug('doOperation 1');
     const connection = await WorkspaceContext.getInstance().getConnection();
+    logger.debug('doOperation 2');
     const sourceTrackingEnabled = sfdxCoreSettings.getEnableSourceTrackingForDeployAndRetrieve();
+    logger.debug('doOperation 3', { sourceTrackingEnabled });
     if (sourceTrackingEnabled) {
       const orgType = await workspaceContextUtils.getWorkspaceOrgType();
       if (orgType === workspaceContextUtils.OrgType.SourceTracked) {
@@ -244,6 +256,7 @@ export abstract class RetrieveExecutor<T> extends DeployRetrieveExecutor<T> {
           connection
         );
       }
+      logger.debug('doOperation 4');
     }
 
     const defaultOutput = join(
@@ -251,22 +264,25 @@ export abstract class RetrieveExecutor<T> extends DeployRetrieveExecutor<T> {
       (await SfdxPackageDirectories.getDefaultPackageDir()) ?? ''
     );
 
+    logger.debug('doOperation 5');
     const operation = await components.retrieve({
       usernameOrConnection: connection,
       output: defaultOutput,
       merge: true,
       suppressEvents: false
     });
-
+    logger.debug('doOperation 6');
     this.setupCancellation(operation, token);
 
     const result: RetrieveResult = await operation.pollStatus();
+    logger.debug('doOperation 7');
     if (sourceTrackingEnabled) {
       const status = result?.response?.status;
       if (
         (status === 'Succeeded' || status === 'SucceededPartial') &&
         this.sourceTracking
       ) {
+        logger.debug('doOperation 8');
         await SourceTrackingService.updateSourceTrackingAfterRetrieve(
           this.sourceTracking,
           result
@@ -274,12 +290,14 @@ export abstract class RetrieveExecutor<T> extends DeployRetrieveExecutor<T> {
       }
     }
 
+    logger.debug('doOperation 9', { result });
     return result;
   }
 
   protected async postOperation(
     result: RetrieveResult | undefined
   ): Promise<void> {
+    logger.debug('postOperation', { result });
     if (result) {
       DeployRetrieveExecutor.errorCollection.clear();
       SfdxCommandletExecutor.errorCollection.clear();
@@ -296,6 +314,7 @@ export abstract class RetrieveExecutor<T> extends DeployRetrieveExecutor<T> {
     result: RetrieveResult,
     relativePackageDirs: string[]
   ): string {
+    logger.debug('createOutput');
     const successes: Row[] = [];
     const failures: Row[] = [];
 
@@ -305,13 +324,14 @@ export abstract class RetrieveExecutor<T> extends DeployRetrieveExecutor<T> {
         response.filePath,
         relativePackageDirs
       );
+      logger.debug('createOutput 1');
       if (response.state !== ComponentStatus.Failed) {
         successes.push(asRow);
       } else {
         failures.push(asRow);
       }
     }
-
+    logger.debug('createOutput 2');
     return this.createOutputTable(successes, failures);
   }
 

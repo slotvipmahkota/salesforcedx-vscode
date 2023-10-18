@@ -10,10 +10,13 @@ import { SfdxProjectConfig } from '../sfdxProject';
 
 import * as path from 'path';
 import { workspaceUtils } from '../util';
+import { logger } from '../util/logger';
 
 export default class SfdxPackageDirectories {
   public static async getPackageDirectoryPaths(): Promise<string[]> {
-    const packageDirectories = await SfdxProjectConfig.getValue<JsonArray>('packageDirectories');
+    const packageDirectories = await SfdxProjectConfig.getValue<JsonArray>(
+      'packageDirectories'
+    );
     if (packageDirectories) {
       let packageDirectoryPaths: string[] = [];
       packageDirectories.forEach(packageDir => {
@@ -67,6 +70,7 @@ export default class SfdxPackageDirectories {
   }
 
   public static async getDefaultPackageDir(): Promise<string | undefined> {
+    logger.debug('getDefaultPackageDir');
     let packageDirs: string[] = [];
     try {
       packageDirs = await SfdxPackageDirectories.getPackageDirectoryPaths();

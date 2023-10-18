@@ -18,13 +18,17 @@ import { notificationService } from '../../notifications';
 import { telemetryService } from '../../telemetry';
 import { MetadataDictionary, workspaceUtils } from '../../util';
 import { PathStrategyFactory } from './sourcePathStrategies';
+import { logger } from '../../util/logger';
 
 type OneOrMany = LocalComponent | LocalComponent[];
 type ContinueOrCancel = ContinueResponse<OneOrMany> | CancelResponse;
 
-export class OverwriteComponentPrompt implements PostconditionChecker<OneOrMany> {
-    public async check(inputs: ContinueOrCancel): Promise<ContinueOrCancel> {
+export class OverwriteComponentPrompt
+  implements PostconditionChecker<OneOrMany> {
+  public async check(inputs: ContinueOrCancel): Promise<ContinueOrCancel> {
+    logger.debug('OverwriteComponentPrompt.check 1');
     if (inputs.type === 'CONTINUE') {
+      logger.debug('OverwriteComponentPrompt.check 2');
       const { data } = inputs;
       // normalize data into a list when processing
       const componentsToCheck = data instanceof Array ? data : [data];
@@ -45,7 +49,7 @@ export class OverwriteComponentPrompt implements PostconditionChecker<OneOrMany>
           );
         }
       }
-
+      logger.debug('OverwriteComponentPrompt.check 2', { inputs });
       return inputs;
     }
     return { type: 'CANCEL' };

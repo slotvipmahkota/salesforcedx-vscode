@@ -9,10 +9,13 @@ import { PreconditionChecker } from '@salesforce/salesforcedx-utils-vscode';
 import { workspace } from 'vscode';
 import { notificationService } from '../../notifications';
 import { isSfdxProjectOpened } from '../../predicates';
+import { logger } from '../../util/logger';
 
 export class SfdxWorkspaceChecker implements PreconditionChecker {
   public check(): boolean {
+    logger.debug('SfdxWorkspaceChecker');
     const result = isSfdxProjectOpened.apply(workspace);
+    logger.debug('SfdxWorkspaceChecker', { result });
     if (!result.result) {
       notificationService.showErrorMessage(result.message);
       return false;

@@ -6,6 +6,7 @@
  */
 
 import { getRootWorkspacePath } from '@salesforce/salesforcedx-utils-vscode';
+import { logger } from '../../util/logger';
 
 /**
  * Reformats errors thrown by beta deploy/retrieve logic.
@@ -14,6 +15,7 @@ import { getRootWorkspacePath } from '@salesforce/salesforcedx-utils-vscode';
  * @returns A newly formatted error
  */
 export function formatException(e: Error): Error {
+  logger.debug('formatException', { e });
   e.message = e.message.replace(getRootWorkspacePath(), '');
   return e;
 }

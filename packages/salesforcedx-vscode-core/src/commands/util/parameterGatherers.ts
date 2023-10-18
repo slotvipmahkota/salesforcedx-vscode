@@ -18,6 +18,7 @@ import { nls } from '../../messages';
 import { SfdxPackageDirectories } from '../../sfdxProject';
 import { workspaceUtils } from '../../util';
 import { RetrieveDescriber } from '../forceSourceRetrieveMetadata';
+import { logger } from '../../util/logger';
 
 export const CONTINUE = 'CONTINUE';
 export const CANCEL = 'CANCEL';
@@ -344,12 +345,14 @@ export class RetrieveComponentOutputGatherer
   private describer: RetrieveDescriber;
 
   constructor(describer: RetrieveDescriber) {
+    logger.debug('RetrieveComponentOutputGatherer constructor called');
     this.describer = describer;
   }
 
   public async gather(): Promise<
     CancelResponse | ContinueResponse<LocalComponent[]>
   > {
+    logger.debug('RetrieveComponentOutputGatherer gather');
     return {
       type: CONTINUE,
       data: await this.describer.gatherOutputLocations()
