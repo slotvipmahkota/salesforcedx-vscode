@@ -12,7 +12,7 @@
 
 #### salesforcedx-vscode-core
 
-- We added missing label. ([PR #5162](https://github.com/forcedotcom/salesforcedx-vscode/pull/5162))
+- We added a missing label. ([PR #5162](https://github.com/forcedotcom/salesforcedx-vscode/pull/5162))
 
 - We upgraded the VS Code language client to version 9. ([PR #5127](https://github.com/forcedotcom/salesforcedx-vscode/pull/5127))
 
