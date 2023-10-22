@@ -20,7 +20,7 @@ jobs:
       matrix:
         os: [windows-latest]
         nodeVersion:
-          - 16.15.1
+          - 18.11.0
         vscodeVersion:
           - stable
     steps:
