@@ -4,7 +4,11 @@
  * Licensed under the BSD 3-Clause license.
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-import { CliStatusEnum, CliVersionStatus, ensureCurrentWorkingDirIsProjectPath } from '@salesforce/salesforcedx-utils';
+import {
+  CliStatusEnum,
+  CliVersionStatus,
+  ensureCurrentWorkingDirIsProjectPath
+} from '@salesforce/salesforcedx-utils';
 import {
   ChannelService,
   getRootWorkspacePath,
@@ -530,6 +534,8 @@ async function setupOrgBrowser(
   vscode.commands.registerCommand('sfdx.create.manifest', forceCreateManifest);
 }
 
+const issueNumber = '5340';
+
 export async function activate(extensionContext: vscode.ExtensionContext) {
   const extensionHRStart = process.hrtime();
   const rootWorkspacePath = getRootWorkspacePath();
@@ -715,51 +721,98 @@ export function deactivate(): Promise<void> {
 export function validateCliInstallationAndVersion(): void {
   // Check that the CLI is installed and that it is a supported version
   // If there is no CLI or it is an unsupported version then the Core extension will not activate
+
+  console.log(
+    '!!!! In index.ts - Enter validateCliInstallationAndVersion()',
+    issueNumber
+  );
   const c = new CliVersionStatus();
 
   const sfdxCliVersionString = c.getCliVersion(true);
+  console.log(
+    'sfdxCliVersionString = [' + sfdxCliVersionString + '] ',
+    issueNumber
+  );
   const sfCliVersionString = c.getCliVersion(false);
+  console.log(
+    'sfCliVersionString = [' + sfCliVersionString + '] ',
+    issueNumber
+  );
 
   const sfdxCliVersionParsed = c.parseCliVersion(sfdxCliVersionString);
+  console.log(
+    'sfdxCliVersionParsed = [' + sfdxCliVersionParsed + '] ',
+    issueNumber
+  );
   const sfCliVersionParsed = c.parseCliVersion(sfCliVersionString);
+  console.log(
+    'sfCliVersionParsed = [' + sfCliVersionParsed + '] ',
+    issueNumber
+  );
 
-  const cliInstallationResult = c.validateCliInstallationAndVersion(sfdxCliVersionParsed, sfCliVersionParsed);
+  const cliInstallationResult = c.validateCliInstallationAndVersion(
+    sfdxCliVersionParsed,
+    sfCliVersionParsed
+  );
+  console.log(
+    'cliInstallationResult = [' + cliInstallationResult + '] ',
+    issueNumber
+  );
 
-  switch(cliInstallationResult) {
+  switch (cliInstallationResult) {
     case CliStatusEnum.cliNotInstalled: {
-      showErrorNotification('sfdx_cli_not_found', [SF_CLI_DOWNLOAD_LINK, SF_CLI_DOWNLOAD_LINK]);
-      throw Error('No Salesforce CLI installed');
+      console.log('CASE 1: No Salesforce CLI installed ', issueNumber);
+      showErrorNotification('sfdx_cli_not_found', [
+        SF_CLI_DOWNLOAD_LINK,
+        SF_CLI_DOWNLOAD_LINK
+      ]);
+      // throw Error('No Salesforce CLI installed');
     }
     case CliStatusEnum.onlySFv1: {
-      showErrorNotification('sf_v1_not_supported', [SF_CLI_DOWNLOAD_LINK, SF_CLI_DOWNLOAD_LINK]);
-      throw Error('Only SF v1 installed');
+      console.log('CASE 2: Only SF v1 installed ', issueNumber);
+      showErrorNotification('sf_v1_not_supported', [
+        SF_CLI_DOWNLOAD_LINK,
+        SF_CLI_DOWNLOAD_LINK
+      ]);
+      // throw Error('Only SF v1 installed');
     }
     case CliStatusEnum.outdatedSFDXVersion: {
-      showErrorNotification('sfdx_cli_not_supported', [SF_CLI_DOWNLOAD_LINK, SF_CLI_DOWNLOAD_LINK]);
-      throw Error('Outdated SFDX CLI version that is no longer supported');
+      console.log(
+        'CASE 3: Outdated SFDX CLI version that is no longer supported ',
+        issueNumber
+      );
+      showErrorNotification('sfdx_cli_not_supported', [
+        SF_CLI_DOWNLOAD_LINK,
+        SF_CLI_DOWNLOAD_LINK
+      ]);
+      // throw Error('Outdated SFDX CLI version that is no longer supported');
     }
     case CliStatusEnum.bothSFDXAndSFInstalled: {
+      console.log('CASE 4: Both SFDX v7 and SF v2 are installed ', issueNumber);
       showErrorNotification('both_sfdx_and_sf', []);
-      throw Error('Both SFDX v7 and SF v2 are installed');
+      // throw Error('Both SFDX v7 and SF v2 are installed');
     }
     case CliStatusEnum.SFDXv7Valid: {
-      showWarningNotification('sfdx_v7_deprecation', [SF_CLI_DOWNLOAD_LINK, SF_CLI_DOWNLOAD_LINK]);
+      console.log('CASE 5: valid SFDX CLI warning ', issueNumber);
+      showWarningNotification('sfdx_v7_deprecation', [
+        SF_CLI_DOWNLOAD_LINK,
+        SF_CLI_DOWNLOAD_LINK
+      ]);
     }
   }
+
+  console.log(
+    '!!!! In index.ts - Exit validateCliInstallationAndVersion() ',
+    issueNumber
+  );
 }
 
 export function showErrorNotification(type: string, args: any[]) {
-  const showMessage = nls.localize(
-    type,
-    ...args
-  );
+  const showMessage = nls.localize(type, ...args);
   vscode.window.showErrorMessage(showMessage);
 }
 
 export function showWarningNotification(type: string, args: any[]) {
-  const showMessage = nls.localize(
-    type,
-    ...args
-  );
+  const showMessage = nls.localize(type, ...args);
   vscode.window.showWarningMessage(showMessage);
 }
