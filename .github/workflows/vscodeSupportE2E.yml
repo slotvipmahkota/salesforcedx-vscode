@@ -67,6 +67,8 @@ jobs:
         run: |
           npm install
         working-directory: salesforcedx-vscode-automation-tests
+      - name: Print Node Version
+        run: node -v
       - name: Install the SFDX CLI
         run: npm install -g sfdx-cli
       - name: Verify CLI
