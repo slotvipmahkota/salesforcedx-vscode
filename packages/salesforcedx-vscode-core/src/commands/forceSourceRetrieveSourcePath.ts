@@ -7,7 +7,8 @@
 import {
   CancelResponse,
   ContinueResponse,
-  PostconditionChecker
+  PostconditionChecker,
+  elapsedTime
 } from '@salesforce/salesforcedx-utils-vscode';
 import { ComponentSet } from '@salesforce/source-deploy-retrieve';
 import * as vscode from 'vscode';
@@ -33,14 +34,15 @@ export class LibraryRetrieveSourcePathExecutor extends RetrieveExecutor<
     );
   }
 
-  public async getComponents(
+  @elapsedTime
+  public getComponents(
     response: ContinueResponse<string[]>
   ): Promise<ComponentSet> {
     const paths =
       typeof response.data === 'string' ? [response.data] : response.data;
     const componentSet = ComponentSet.fromSource(paths);
 
-    return componentSet;
+    return Promise.resolve(componentSet);
   }
 }
 

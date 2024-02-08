@@ -7,7 +7,8 @@
 
 import {
   ContinueResponse,
-  LocalComponent
+  LocalComponent,
+  elapsedTime
 } from '@salesforce/salesforcedx-utils-vscode';
 import {
   ComponentSet,
@@ -33,6 +34,7 @@ export class LibraryRetrieveSourcePathExecutor extends RetrieveExecutor<
     this.openAfterRetrieve = openAfterRetrieve;
   }
 
+  @elapsedTime
   protected async getComponents(
     response: ContinueResponse<LocalComponent[]>
   ): Promise<ComponentSet> {
@@ -50,6 +52,7 @@ export class LibraryRetrieveSourcePathExecutor extends RetrieveExecutor<
     return toRetrieve;
   }
 
+  @elapsedTime
   protected async postOperation(result: RetrieveResult | undefined) {
     await super.postOperation(result);
 
@@ -70,6 +73,7 @@ export class LibraryRetrieveSourcePathExecutor extends RetrieveExecutor<
     }
   }
 
+  @elapsedTime
   private findResources(
     filter: ComponentLike,
     compSet?: ComponentSet
@@ -92,6 +96,7 @@ export class LibraryRetrieveSourcePathExecutor extends RetrieveExecutor<
     return [];
   }
 
+  @elapsedTime
   private async openResources(filesToOpen: string[]): Promise<void> {
     for (const file of filesToOpen) {
       const showOptions: vscode.TextDocumentShowOptions = {

@@ -8,7 +8,8 @@
 import {
   CancelResponse,
   ContinueResponse,
-  PostconditionChecker
+  PostconditionChecker,
+  elapsedTime
 } from '@salesforce/salesforcedx-utils-vscode';
 import { basename, normalize } from 'path';
 import { channelService } from '../../channels';
@@ -35,6 +36,7 @@ export class TimestampConflictChecker implements PostconditionChecker<string> {
     this.isManifest = isManifest;
   }
 
+  @elapsedTime
   public async check(
     inputs: ContinueResponse<string> | CancelResponse
   ): Promise<ContinueResponse<string> | CancelResponse> {
@@ -90,6 +92,7 @@ export class TimestampConflictChecker implements PostconditionChecker<string> {
     return { type: 'CANCEL' };
   }
 
+  @elapsedTime
   public async handleConflicts(
     componentPath: string,
     usernameOrAlias: string,

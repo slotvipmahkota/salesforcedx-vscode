@@ -6,6 +6,7 @@
  */
 import {
   ContinueResponse,
+  elapsedTime,
   getRelativeProjectPath,
   getRootWorkspacePath,
   LibraryCommandletExecutor,
@@ -48,15 +49,15 @@ type DeployRetrieveOperation = MetadataApiDeploy | MetadataApiRetrieve;
 export abstract class DeployRetrieveExecutor<
   T
 > extends LibraryCommandletExecutor<T> {
-  public static errorCollection = vscode.languages.createDiagnosticCollection(
-    'deploy-errors'
-  );
+  public static errorCollection =
+    vscode.languages.createDiagnosticCollection('deploy-errors');
   protected cancellable: boolean = true;
 
   constructor(executionName: string, logName: string) {
     super(executionName, logName, OUTPUT_CHANNEL);
   }
 
+  @elapsedTime
   public async run(
     response: ContinueResponse<T>,
     progress?: vscode.Progress<{
@@ -92,6 +93,7 @@ export abstract class DeployRetrieveExecutor<
     }
   }
 
+  @elapsedTime
   protected setupCancellation(
     operation: DeployRetrieveOperation | undefined,
     token?: vscode.CancellationToken
@@ -116,6 +118,7 @@ export abstract class DeployRetrieveExecutor<
 }
 
 export abstract class DeployExecutor<T> extends DeployRetrieveExecutor<T> {
+  @elapsedTime
   protected async doOperation(
     components: ComponentSet,
     token: vscode.CancellationToken
@@ -123,7 +126,8 @@ export abstract class DeployExecutor<T> extends DeployRetrieveExecutor<T> {
     const projectPath = getRootWorkspacePath();
     const connection = await WorkspaceContext.getInstance().getConnection();
     components.projectDirectory = projectPath;
-    const sourceTrackingEnabled = sfdxCoreSettings.getEnableSourceTrackingForDeployAndRetrieve();
+    const sourceTrackingEnabled =
+      sfdxCoreSettings.getEnableSourceTrackingForDeployAndRetrieve();
     if (sourceTrackingEnabled) {
       const sourceTracking = await SourceTrackingService.getSourceTracking(
         projectPath,
@@ -141,6 +145,7 @@ export abstract class DeployExecutor<T> extends DeployRetrieveExecutor<T> {
     return operation.pollStatus();
   }
 
+  @elapsedTime
   protected async postOperation(
     result: DeployResult | undefined
   ): Promise<void> {
@@ -151,7 +156,8 @@ export abstract class DeployExecutor<T> extends DeployRetrieveExecutor<T> {
           result
         );
 
-        const relativePackageDirs = await SfdxPackageDirectories.getPackageDirectoryPaths();
+        const relativePackageDirs =
+          await SfdxPackageDirectories.getPackageDirectoryPaths();
         const output = this.createOutput(result, relativePackageDirs);
         channelService.appendLine(output);
 
@@ -170,7 +176,7 @@ export abstract class DeployExecutor<T> extends DeployRetrieveExecutor<T> {
       await DeployQueue.get().unlock();
     }
   }
-
+  @elapsedTime
   protected unsuccessfulOperationHandler(
     result: DeployResult,
     errorCollection: any
@@ -178,19 +184,20 @@ export abstract class DeployExecutor<T> extends DeployRetrieveExecutor<T> {
     handleDeployDiagnostics(result, errorCollection);
   }
 
+  @elapsedTime
   private createOutput(
     result: DeployResult,
     relativePackageDirs: string[]
   ): string {
     const table = new Table();
 
-    const rowsWithRelativePaths = (result.getFileResponses().map(response => {
+    const rowsWithRelativePaths = result.getFileResponses().map(response => {
       response.filePath = getRelativeProjectPath(
         response.filePath,
         relativePackageDirs
       );
       return response;
-    }) as unknown) as Row[];
+    }) as unknown as Row[];
 
     let output: string;
 
@@ -229,13 +236,15 @@ export abstract class DeployExecutor<T> extends DeployRetrieveExecutor<T> {
 export abstract class RetrieveExecutor<T> extends DeployRetrieveExecutor<T> {
   private sourceTracking?: SourceTrackingType;
 
+  @elapsedTime
   protected async doOperation(
     components: ComponentSet,
     token: vscode.CancellationToken
   ): Promise<RetrieveResult | undefined> {
     const projectPath = getRootWorkspacePath();
     const connection = await WorkspaceContext.getInstance().getConnection();
-    const sourceTrackingEnabled = sfdxCoreSettings.getEnableSourceTrackingForDeployAndRetrieve();
+    const sourceTrackingEnabled =
+      sfdxCoreSettings.getEnableSourceTrackingForDeployAndRetrieve();
     if (sourceTrackingEnabled) {
       const orgType = await workspaceContextUtils.getWorkspaceOrgType();
       if (orgType === workspaceContextUtils.OrgType.SourceTracked) {
@@ -264,7 +273,8 @@ export abstract class RetrieveExecutor<T> extends DeployRetrieveExecutor<T> {
     if (sourceTrackingEnabled) {
       const status = result?.response?.status;
       if (
-        (status === RequestStatus.Succeeded || status === RequestStatus.SucceededPartial) &&
+        (status === RequestStatus.Succeeded ||
+          status === RequestStatus.SucceededPartial) &&
         this.sourceTracking
       ) {
         await SourceTrackingService.updateSourceTrackingAfterRetrieve(
@@ -277,13 +287,15 @@ export abstract class RetrieveExecutor<T> extends DeployRetrieveExecutor<T> {
     return result;
   }
 
+  @elapsedTime
   protected async postOperation(
     result: RetrieveResult | undefined
   ): Promise<void> {
     if (result) {
       DeployRetrieveExecutor.errorCollection.clear();
       SfdxCommandletExecutor.errorCollection.clear();
-      const relativePackageDirs = await SfdxPackageDirectories.getPackageDirectoryPaths();
+      const relativePackageDirs =
+        await SfdxPackageDirectories.getPackageDirectoryPaths();
       const output = this.createOutput(result, relativePackageDirs);
       channelService.appendLine(output);
       PersistentStorageService.getInstance().setPropertiesForFilesRetrieve(
@@ -292,6 +304,7 @@ export abstract class RetrieveExecutor<T> extends DeployRetrieveExecutor<T> {
     }
   }
 
+  @elapsedTime
   private createOutput(
     result: RetrieveResult,
     relativePackageDirs: string[]
@@ -300,7 +313,7 @@ export abstract class RetrieveExecutor<T> extends DeployRetrieveExecutor<T> {
     const failures: Row[] = [];
 
     for (const response of result.getFileResponses()) {
-      const asRow = (response as unknown) as Row;
+      const asRow = response as unknown as Row;
       response.filePath = getRelativeProjectPath(
         response.filePath,
         relativePackageDirs
@@ -315,6 +328,7 @@ export abstract class RetrieveExecutor<T> extends DeployRetrieveExecutor<T> {
     return this.createOutputTable(successes, failures);
   }
 
+  @elapsedTime
   private createOutputTable(successes: Row[], failures: Row[]): string {
     const table = new Table();
 

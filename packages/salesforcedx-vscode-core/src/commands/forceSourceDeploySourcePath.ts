@@ -4,7 +4,7 @@
  * Licensed under the BSD 3-Clause license.
  * For full license text, see LICENSE.txt file in the repo root or https://opensource.org/licenses/BSD-3-Clause
  */
-import { ContinueResponse } from '@salesforce/salesforcedx-utils-vscode';
+import { ContinueResponse, elapsedTime } from '@salesforce/salesforcedx-utils-vscode';
 import { ComponentSet } from '@salesforce/source-deploy-retrieve';
 import * as vscode from 'vscode';
 import { channelService } from '../channels';
@@ -30,14 +30,15 @@ export class LibraryDeploySourcePathExecutor extends DeployExecutor<string[]> {
     );
   }
 
-  public async getComponents(
+  @elapsedTime
+  public getComponents(
     response: ContinueResponse<string[]>
   ): Promise<ComponentSet> {
     const paths =
       typeof response.data === 'string' ? [response.data] : response.data;
     const componentSet = ComponentSet.fromSource(paths);
 
-    return componentSet;
+    return Promise.resolve(componentSet);
   }
 }
 

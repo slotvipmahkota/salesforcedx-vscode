@@ -12,7 +12,8 @@ import {
   ContinueResponse,
   Measurements,
   Properties,
-  TelemetryData
+  TelemetryData,
+  elapsedTime
 } from '@salesforce/salesforcedx-utils-vscode';
 import * as vscode from 'vscode';
 import { channelService } from '../../channels';
@@ -83,6 +84,7 @@ export abstract class SfdxCommandletExecutor<T>
     );
   }
 
+  @elapsedTime
   public execute(response: ContinueResponse<T>): void {
     const startTime = process.hrtime();
     const cancellationTokenSource = new vscode.CancellationTokenSource();

@@ -8,7 +8,8 @@
 import {
   ParametersGatherer,
   PostconditionChecker,
-  PreconditionChecker
+  PreconditionChecker,
+  elapsedTime
 } from '@salesforce/salesforcedx-utils-vscode';
 import * as vscode from 'vscode';
 import { channelService } from '../../channels';
@@ -39,6 +40,7 @@ export class SfdxCommandlet<T> {
     }
   }
 
+  @elapsedTime
   public async run(): Promise<void> {
     if (sfdxCoreSettings.getEnableClearOutputBeforeEachCommand()) {
       channelService.clear();

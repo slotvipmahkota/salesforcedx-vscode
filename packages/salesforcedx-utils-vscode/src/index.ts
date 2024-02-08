@@ -37,7 +37,6 @@ export {
   Properties,
   Measurements
 } from './telemetry/telemetry';
-export * from './helpers';
 export { TraceFlags } from './helpers/traceFlags';
 export { TelemetryReporter } from './telemetry/telemetryReporter';
 export {
@@ -55,3 +54,4 @@ export * from './output';
 export * from './predicates';
 export * from './providers';
 export * from './services';
+export * from './helpers';

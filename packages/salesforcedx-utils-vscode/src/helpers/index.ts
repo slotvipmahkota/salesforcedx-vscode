@@ -30,3 +30,4 @@ export {
   isRecordIdFormat
 } from './validations';
 export { isSFContainerMode } from './env';
+export { elapsedTime } from './elapsedTime';

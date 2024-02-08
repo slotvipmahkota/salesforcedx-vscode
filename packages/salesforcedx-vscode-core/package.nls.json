@@ -78,5 +78,6 @@
   "stop_apex_debug_logging": "SFDX: Turn Off Apex Debug Log for Replay Debugger",
   "telemetry_enabled_description": "Specifies whether to enable Salesforce telemetry. Even when enabled, still abides by the overall `telemetry.enableTelemetry` vscode setting.",
   "visualforce_generate_component_text": "SFDX: Create Visualforce Component",
-  "visualforce_generate_page_text": "SFDX: Create Visualforce Page"
+  "visualforce_generate_page_text": "SFDX: Create Visualforce Page",
+  "enable_elapsed_time_telemetry": "Enables elapsed time telemetry reporting"
 }

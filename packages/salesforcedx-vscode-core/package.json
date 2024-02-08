@@ -978,6 +978,11 @@
           "type": "string",
           "default": "fatal",
           "description": "%sf_log_level_description%"
+        },
+        "salesforcedx-vscode-core.enableElapsedTimeTelemetry": {
+          "type": "boolean",
+          "default": "false",
+          "description": "%enable_elapsed_time_telemetry%"
         }
       }
     },
