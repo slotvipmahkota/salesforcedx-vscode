@@ -1,3 +1,35 @@
+# 60.1.1 - February 22, 2024
+
+## Fixed
+
+#### docs
+
+- Revert " update "sfdx" examples in docs to their "sf" equivalents" ([PR #5434](https://github.com/forcedotcom/salesforcedx-vscode/pull/5434))
+
+- Sfdx to sf for install package and org assign permset ([PR #5424](https://github.com/forcedotcom/salesforcedx-vscode/pull/5424))
+
+- Update "sfdx" examples in docs to their "sf" equivalents ([PR #5432](https://github.com/forcedotcom/salesforcedx-vscode/pull/5432))
+
+- Revert " update "sfdx" examples in docs to their "sf" equivalents " (#5431) ([PR #5430](https://github.com/forcedotcom/salesforcedx-vscode/pull/5430))
+
+- Update "sfdx" examples in docs to their "sf" equivalents ([PR #5430](https://github.com/forcedotcom/salesforcedx-vscode/pull/5430))
+
+- Broken links and new redirects ([PR #5422](https://github.com/forcedotcom/salesforcedx-vscode/pull/5422))
+
+#### salesforcedx-vscode-apex
+
+- Sfdx to sf for apex test suite ([PR #5427](https://github.com/forcedotcom/salesforcedx-vscode/pull/5427))
+
+#### salesforcedx-vscode-core
+
+- Sfdx to sf for install package and org assign permset ([PR #5424](https://github.com/forcedotcom/salesforcedx-vscode/pull/5424))
+
+- Sfdx to sf for auth access token, generate manifest and rename lwc component ([PR #5409](https://github.com/forcedotcom/salesforcedx-vscode/pull/5409))
+
+#### salesforcedx-vscode-lwc
+
+- Sfdx to sf for lwc run and debug tests ([PR #5428](https://github.com/forcedotcom/salesforcedx-vscode/pull/5428))
+
 # 60.0.0 - February 14, 2024
 
 ## Added
