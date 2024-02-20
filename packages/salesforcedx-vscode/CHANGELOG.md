@@ -4,31 +4,15 @@
 
 #### docs
 
-- Revert " update "sfdx" examples in docs to their "sf" equivalents" ([PR #5434](https://github.com/forcedotcom/salesforcedx-vscode/pull/5434))
-
-- Sfdx to sf for install package and org assign permset ([PR #5424](https://github.com/forcedotcom/salesforcedx-vscode/pull/5424))
-
-- Update "sfdx" examples in docs to their "sf" equivalents ([PR #5432](https://github.com/forcedotcom/salesforcedx-vscode/pull/5432))
-
-- Revert " update "sfdx" examples in docs to their "sf" equivalents " (#5431) ([PR #5430](https://github.com/forcedotcom/salesforcedx-vscode/pull/5430))
-
-- Update "sfdx" examples in docs to their "sf" equivalents ([PR #5430](https://github.com/forcedotcom/salesforcedx-vscode/pull/5430))
-
-- Broken links and new redirects ([PR #5422](https://github.com/forcedotcom/salesforcedx-vscode/pull/5422))
+- We fixed two broken links and added some redirects. ([PR #5422](https://github.com/forcedotcom/salesforcedx-vscode/pull/5422))
 
 #### salesforcedx-vscode-apex
-
-- Sfdx to sf for apex test suite ([PR #5427](https://github.com/forcedotcom/salesforcedx-vscode/pull/5427))
-
+#### salesforcedx-vscode-lwc
 #### salesforcedx-vscode-core
 
-- Sfdx to sf for install package and org assign permset ([PR #5424](https://github.com/forcedotcom/salesforcedx-vscode/pull/5424))
+- We migrated more commands to the new `sf-style`. ([PR #5427](https://github.com/forcedotcom/salesforcedx-vscode/pull/5427), [PR #5424](https://github.com/forcedotcom/salesforcedx-vscode/pull/5424), [PR #5409](https://github.com/forcedotcom/salesforcedx-vscode/pull/5409), [PR #5428](https://github.com/forcedotcom/salesforcedx-vscode/pull/5428), [PR #5418](https://github.com/forcedotcom/salesforcedx-vscode/pull/5418))
 
-- Sfdx to sf for auth access token, generate manifest and rename lwc component ([PR #5409](https://github.com/forcedotcom/salesforcedx-vscode/pull/5409))
-
-#### salesforcedx-vscode-lwc
-
-- Sfdx to sf for lwc run and debug tests ([PR #5428](https://github.com/forcedotcom/salesforcedx-vscode/pull/5428))
+- We fixed an issue in the previous release where the error messages were not showing up in the Output tab when there is an error while running push commands. ([PR #5441](https://github.com/forcedotcom/salesforcedx-vscode/pull/5441))
 
 # 60.0.0 - February 14, 2024
 
