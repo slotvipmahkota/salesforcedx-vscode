@@ -2,17 +2,13 @@
 
 ## Fixed
 
-#### docs
-
-- We fixed two broken links and added some redirects. ([PR #5422](https://github.com/forcedotcom/salesforcedx-vscode/pull/5422))
-
 #### salesforcedx-vscode-apex
 #### salesforcedx-vscode-lwc
 #### salesforcedx-vscode-core
 
 - We migrated more commands to the new `sf-style`. ([PR #5427](https://github.com/forcedotcom/salesforcedx-vscode/pull/5427), [PR #5424](https://github.com/forcedotcom/salesforcedx-vscode/pull/5424), [PR #5409](https://github.com/forcedotcom/salesforcedx-vscode/pull/5409), [PR #5428](https://github.com/forcedotcom/salesforcedx-vscode/pull/5428), [PR #5418](https://github.com/forcedotcom/salesforcedx-vscode/pull/5418))
 
-- We fixed an issue in the previous release where the error messages were not showing up in the Output tab when there is an error while running push commands. ([PR #5441](https://github.com/forcedotcom/salesforcedx-vscode/pull/5441))
+-  We fixed an issue where error messages thrown by push commands weren't showing up in the Output tab. ([PR #5441](https://github.com/forcedotcom/salesforcedx-vscode/pull/5441))
 
 # 60.0.0 - February 14, 2024
 
