@@ -3,14 +3,14 @@
 ## Fixed
 
 #### salesforcedx-vscode-apex
-- We migrated the Apex test suite commands to the new `sf-style` ([PR #5427](https://github.com/forcedotcom/salesforcedx-vscode/pull/5427))
+- We made some changes under the hood. ([PR #5427](https://github.com/forcedotcom/salesforcedx-vscode/pull/5427))
 
 #### salesforcedx-vscode-lwc
-- We migrated the LWC run and debug tests commands to the new `sf-style` ([PR #5428](https://github.com/forcedotcom/salesforcedx-vscode/pull/5428))
+- We made some changes under the hood. ([PR #5428](https://github.com/forcedotcom/salesforcedx-vscode/pull/5428))
 
 #### salesforcedx-vscode-core
 
-- We migrated the following commands to the new `sf-style`: Install package, diff, refresh SObject definitions, authorize an org using session ID, generate manifest file, rename component. ([PR #5424](https://github.com/forcedotcom/salesforcedx-vscode/pull/5424), [PR #5409](https://github.com/forcedotcom/salesforcedx-vscode/pull/5409), [PR #5418](https://github.com/forcedotcom/salesforcedx-vscode/pull/5418))
+- We made some changes under the hood. ([PR #5424](https://github.com/forcedotcom/salesforcedx-vscode/pull/5424), [PR #5409](https://github.com/forcedotcom/salesforcedx-vscode/pull/5409), [PR #5418](https://github.com/forcedotcom/salesforcedx-vscode/pull/5418))
 
 -  We fixed an issue where error messages thrown by push commands weren't showing up in the Output tab. ([PR #5441](https://github.com/forcedotcom/salesforcedx-vscode/pull/5441))
 
