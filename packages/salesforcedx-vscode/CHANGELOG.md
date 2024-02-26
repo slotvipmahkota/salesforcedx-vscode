@@ -1,3 +1,23 @@
+# 60.2.0 - February 28, 2024
+
+## Fixed
+
+#### salesforcedx-vscode-apex
+
+- Last of apex. apex rest run cache service to sf ([PR #5452](https://github.com/forcedotcom/salesforcedx-vscode/pull/5452))
+
+#### salesforcedx-vscode-core
+
+- Deploy and retrieve from sfdx to sf ([PR #5451](https://github.com/forcedotcom/salesforcedx-vscode/pull/5451))
+
+- Update vscode engine to 1.82.0 ([PR #5446](https://github.com/forcedotcom/salesforcedx-vscode/pull/5446))
+
+- Add sf log level to current runtime ([PR #5444](https://github.com/forcedotcom/salesforcedx-vscode/pull/5444))
+
+#### salesforcedx-vscode-lwc
+
+- Sfdx to sf for lwc commands ([PR #5429](https://github.com/forcedotcom/salesforcedx-vscode/pull/5429))
+
 # 60.1.2 - February 22, 2024
 
 ## Fixed
