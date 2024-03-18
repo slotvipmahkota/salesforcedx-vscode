@@ -36,7 +36,7 @@ on:
       vscodeVersion:
         description: 'VSCode Version'
         required: false
-        default: 'latest'
+        default: 'stable'
         type: string
       runId:
         description: 'Run ID of the workflow run that created the vsixes'
@@ -78,7 +78,7 @@ on:
       vscodeVersion:
         description: 'VSCode Version'
         required: false
-        default: 'latest'
+        default: 'stable'
         type: string
       runId:
         description: 'Run ID of the workflow run that created the vsixes'
@@ -93,7 +93,7 @@ jobs:
     with:
       automationBranch: ${{ inputs.automationBranch }}
       testToRun: 'deployAndRetrieve.e2e.ts'
-      vscodeVersion: ${{ inputs.vscodeVersion || 'latest' }}
+      vscodeVersion: ${{ inputs.vscodeVersion || 'stable' }}
       runId: ${{ inputs.runId }}
 
   # diffAndConflictDetection:
@@ -103,7 +103,7 @@ jobs:
   #   with:
   #     automationBranch: ${{ inputs.automationBranch }}
   #     testToRun: "diffAndConflictDetection.e2e.ts"
-  #     vscodeVersion: ${{ inputs.vscodeVersion || 'latest' }}
+  #     vscodeVersion: ${{ inputs.vscodeVersion || 'stable' }}
   #     runId: ${{ inputs.runId }}
 
   manifestBuilder:
@@ -113,7 +113,7 @@ jobs:
     with:
       automationBranch: ${{ inputs.automationBranch }}
       testToRun: 'manifestBuilder.e2e.ts'
-      vscodeVersion: ${{ inputs.vscodeVersion || 'latest' }}
+      vscodeVersion: ${{ inputs.vscodeVersion || 'stable' }}
       runId: ${{ inputs.runId }}
 
   orgBrowser:
@@ -123,7 +123,7 @@ jobs:
     with:
       automationBranch: ${{ inputs.automationBranch }}
       testToRun: 'orgBrowser.e2e.ts'
-      vscodeVersion: ${{ inputs.vscodeVersion || 'latest' }}
+      vscodeVersion: ${{ inputs.vscodeVersion || 'stable' }}
       runId: ${{ inputs.runId }}
 
   pushAndPull:
@@ -133,7 +133,7 @@ jobs:
     with:
       automationBranch: ${{ inputs.automationBranch }}
       testToRun: 'pushAndPull.e2e.ts'
-      vscodeVersion: ${{ inputs.vscodeVersion || 'latest' }}
+      vscodeVersion: ${{ inputs.vscodeVersion || 'stable' }}
       runId: ${{ inputs.runId }}
 
   slack_success_notification:

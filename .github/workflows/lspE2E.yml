@@ -26,7 +26,7 @@ on:
       vscodeVersion:
         description: 'VSCode Version'
         required: false
-        default: 'latest'
+        default: 'stable'
         type: string
       runId:
         description: 'Run ID of the workflow run that created the vsixes'
@@ -58,7 +58,7 @@ on:
       vscodeVersion:
         description: 'VSCode Version'
         required: false
-        default: 'latest'
+        default: 'stable'
         type: string
       runId:
         description: 'Run ID of the workflow run that created the vsixes'
@@ -73,7 +73,7 @@ jobs:
     with:
       automationBranch: ${{ inputs.automationBranch }}
       testToRun: 'auraLsp.e2e.ts'
-      vscodeVersion: ${{ inputs.vscodeVersion || 'latest' }}
+      vscodeVersion: ${{ inputs.vscodeVersion || 'stable' }}
       runId: ${{ inputs.runId }}
 
   lwcLSP:
@@ -83,7 +83,7 @@ jobs:
     with:
       automationBranch: ${{ inputs.automationBranch }}
       testToRun: 'lwcLsp.e2e.ts'
-      vscodeVersion: ${{ inputs.vscodeVersion || 'latest' }}
+      vscodeVersion: ${{ inputs.vscodeVersion || 'stable' }}
       runId: ${{ inputs.runId }}
 
   visualforceLSP:
@@ -93,7 +93,7 @@ jobs:
     with:
       automationBranch: ${{ inputs.automationBranch }}
       testToRun: 'visualforceLsp.e2e.ts'
-      vscodeVersion: ${{ inputs.vscodeVersion || 'latest' }}
+      vscodeVersion: ${{ inputs.vscodeVersion || 'stable' }}
       runId: ${{ inputs.runId }}
 
   slack_success_notification:
