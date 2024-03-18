@@ -19,7 +19,7 @@ on:
         default: true
         type: boolean
       einstein:
-        description: 'Einstein for Devs'
+        description: 'Einstein for Developers'
         required: false
         default: true
         type: boolean
