@@ -66,12 +66,12 @@ export class NotificationService {
     this.reportExecutionStatus(
       execution.command.toString(),
       channelService,
-      (execution.processExitSubject as any) as Observable<number | undefined>,
+      execution.processExitSubject as any as Observable<number | undefined>,
       cancellationToken
     );
     this.reportExecutionError(
       execution.command.toString(),
-      (execution.processErrorSubject as any) as Observable<Error | undefined>
+      execution.processErrorSubject as any as Observable<Error | undefined>
     );
   }
 
@@ -96,27 +96,47 @@ export class NotificationService {
   }
 
   public showFailedExecution(executionName: string) {
-    console.log('salesforcedx-utils-vscode/notificationService.ts - enter showFailedExecution()');
+    console.log(
+      'salesforcedx-utils-vscode/notificationService.ts - enter showFailedExecution()'
+    );
     this.showErrorMessage(
       nls.localize('notification_unsuccessful_execution_text', executionName)
+    );
+    console.log(
+      'salesforcedx-utils-vscode/notificationService.ts - exit showFailedExecution()'
     );
   }
 
   public showCanceledExecution(executionName: string) {
-    console.log('salesforcedx-utils-vscode/notificationService.ts - enter showCanceledExecution()');
+    console.log(
+      'salesforcedx-utils-vscode/notificationService.ts - enter showCanceledExecution()'
+    );
     this.showWarningMessage(
       nls.localize('notification_canceled_execution_text', executionName)
     );
+    console.log(
+      'salesforcedx-utils-vscode/notificationService.ts - exit showCanceledExecution()'
+    );
   }
 
-  public async showSuccessfulExecution(executionName: string, channelService: ChannelService | undefined) {
-    console.log('salesforcedx-utils-vscode/notificationService.ts - enter showSuccessfulExecution()');
+  public async showSuccessfulExecution(
+    executionName: string,
+    channelService: ChannelService | undefined
+  ) {
+    console.log(
+      'salesforcedx-utils-vscode/notificationService.ts - enter showSuccessfulExecution()'
+    );
     const message = nls.localize(
       'notification_successful_execution_text',
       executionName
     );
-    const coreConfigurationName = vscode.workspace.getConfiguration(SFDX_CORE_CONFIGURATION_NAME);
-    const showCLISuccessMsg = coreConfigurationName.get<boolean>('show-cli-success-msg', true);
+    const coreConfigurationName = vscode.workspace.getConfiguration(
+      SFDX_CORE_CONFIGURATION_NAME
+    );
+    const showCLISuccessMsg = coreConfigurationName.get<boolean>(
+      'show-cli-success-msg',
+      true
+    );
     if (showCLISuccessMsg) {
       const showButtonText = nls.localize('notification_show_button_text');
       const showOnlyStatusBarButtonText = nls.localize(
@@ -137,6 +157,9 @@ export class NotificationService {
     } else {
       vscode.window.setStatusBarMessage(message, STATUS_BAR_MSG_TIMEOUT_MS);
     }
+    console.log(
+      'salesforcedx-utils-vscode/notificationService.ts - exit showSuccessfulExecution()'
+    );
   }
 
   public reportExecutionError(
