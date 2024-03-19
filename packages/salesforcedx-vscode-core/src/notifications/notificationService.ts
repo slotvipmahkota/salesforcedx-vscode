@@ -93,24 +93,31 @@ export class NotificationService {
   }
 
   public showFailedExecution(executionName: string) {
+    console.log('salesforcedx-vscode-core/notificationService.ts - enter showFailedExecution()');
     this.showErrorMessage(
       nls.localize('notification_unsuccessful_execution_text', executionName)
     );
     channelService.showChannelOutput();
+    console.log('salesforcedx-vscode-core/notificationService.ts - exit showFailedExecution()');
   }
 
   private showCanceledExecution(executionName: string) {
+    console.log('salesforcedx-vscode-core/notificationService.ts - enter showCanceledExecution()');
     this.showWarningMessage(
       nls.localize('notification_canceled_execution_text', executionName)
     );
     channelService.showChannelOutput();
+    console.log('salesforcedx-vscode-core/notificationService.ts - exit showCanceledExecution()');
+
   }
 
   public async showSuccessfulExecution(executionName: string) {
+    console.log('salesforcedx-vscode-core/notificationService.ts - enter showSuccessfulExecution()');
     const message = nls.localize(
       'notification_successful_execution_text',
       executionName
     );
+    console.log('salesforcedx-vscode-core/notificationService.ts - message = [' + message + ']');
     if (sfdxCoreSettings.getShowCLISuccessMsg()) {
       const showButtonText = nls.localize('notification_show_button_text');
       const showOnlyStatusBarButtonText = nls.localize(

@@ -40,6 +40,7 @@ export class SfdxCommandlet<T> {
   }
 
   public async run(): Promise<void> {
+    console.log('salesforcedx-vscode-core/sfdxCommandlet.ts - enter run()');
     if (sfdxCoreSettings.getEnableClearOutputBeforeEachCommand()) {
       channelService.clear();
     }
@@ -48,11 +49,13 @@ export class SfdxCommandlet<T> {
       inputs = await this.postchecker.check(inputs);
       switch (inputs.type) {
         case 'CONTINUE':
+          console.log('salesforcedx-vscode-core/sfdxCommandlet.ts - exit run() case CONTINUE');
           return this.executor.execute(inputs);
         case 'CANCEL':
           if (inputs.msg) {
             notificationService.showErrorMessage(inputs.msg);
           }
+          console.log('salesforcedx-vscode-core/sfdxCommandlet.ts - exit run() case CANCEL');
           return;
       }
     }

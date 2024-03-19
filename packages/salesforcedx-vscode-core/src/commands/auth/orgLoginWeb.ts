@@ -150,6 +150,7 @@ export class OrgLoginWebExecutor extends SfdxCommandletExecutor<AuthParams> {
   protected showChannelOutput = false;
 
   public build(data: AuthParams): Command {
+    console.log('salesforcedx-vscode-core/orgLoginWeb.ts - enter build() for OrgLoginWebExecutor');
     const command = new SfdxCommandBuilder().withDescription(
       nls.localize('org_login_web_authorize_org_text')
     );
@@ -161,6 +162,8 @@ export class OrgLoginWebExecutor extends SfdxCommandletExecutor<AuthParams> {
       .withFlag('--instance-url', data.loginUrl)
       .withArg('--set-default');
 
+    console.log('salesforcedx-vscode-core/orgLoginWeb.ts - command = [' + JSON.stringify(command) + ']');
+    console.log('salesforcedx-vscode-core/orgLoginWeb.ts - exit build() for OrgLoginWebExecutor');
     return command.build();
   }
 }
@@ -244,10 +247,12 @@ export function createOrgLoginWebExecutor(): SfdxCommandletExecutor<{}> {
 }
 
 export async function orgLoginWeb() {
+  console.log('salesforcedx-vscode-core/orgLoginWeb.ts - enter orgLoginWeb()');
   const commandlet = new SfdxCommandlet(
     workspaceChecker,
     parameterGatherer,
     createOrgLoginWebExecutor()
   );
   await commandlet.run();
+  console.log('salesforcedx-vscode-core/orgLoginWeb.ts - exit orgLoginWeb()');
 }

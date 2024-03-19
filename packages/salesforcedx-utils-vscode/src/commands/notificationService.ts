@@ -96,18 +96,21 @@ export class NotificationService {
   }
 
   public showFailedExecution(executionName: string) {
+    console.log('salesforcedx-utils-vscode/notificationService.ts - enter showFailedExecution()');
     this.showErrorMessage(
       nls.localize('notification_unsuccessful_execution_text', executionName)
     );
   }
 
   public showCanceledExecution(executionName: string) {
+    console.log('salesforcedx-utils-vscode/notificationService.ts - enter showCanceledExecution()');
     this.showWarningMessage(
       nls.localize('notification_canceled_execution_text', executionName)
     );
   }
 
   public async showSuccessfulExecution(executionName: string, channelService: ChannelService | undefined) {
+    console.log('salesforcedx-utils-vscode/notificationService.ts - enter showSuccessfulExecution()');
     const message = nls.localize(
       'notification_successful_execution_text',
       executionName
