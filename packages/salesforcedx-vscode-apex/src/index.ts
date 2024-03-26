@@ -9,6 +9,7 @@ import {
   getTestResultsFolder,
   ActivationTracker
 } from '@salesforce/salesforcedx-utils-vscode';
+import { ServiceProvider } from '@salesforce/vscode-service-provider';
 import * as path from 'path';
 import * as vscode from 'vscode';
 import { ApexLanguageClient } from './apexLanguageClient';

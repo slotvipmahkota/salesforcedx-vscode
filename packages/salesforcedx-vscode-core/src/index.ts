@@ -114,6 +114,7 @@ import { orgBrowser } from './orgBrowser';
 import { OrgList } from './orgPicker';
 import { isSalesforceProjectOpened } from './predicates';
 import { SalesforceProjectConfig } from './salesforceProject';
+import { getLoggerInstance } from './services/loggerService';
 import { registerPushOrDeployOnSave, sfdxCoreSettings } from './settings';
 import { taskViewService } from './statuses';
 import { showTelemetryMessage, telemetryService } from './telemetry';
@@ -451,7 +452,8 @@ const registerCommands = (
     orgLoginWebDevHubCmd,
     orgLogoutAllCmd,
     orgLogoutDefaultCmd,
-    orgOpenCmd
+    orgOpenCmd,
+    getLoggerInstanceCommand
   );
 };
 
@@ -494,7 +496,9 @@ const registerInternalDevCommands = (
   );
 };
 
-const registerOrgPickerCommands = (orgListParam: OrgList): vscode.Disposable => {
+const registerOrgPickerCommands = (
+  orgListParam: OrgList
+): vscode.Disposable => {
   const setDefaultOrgCmd = vscode.commands.registerCommand(
     'sfdx.set.default.org',
     () => orgListParam.setDefaultOrg()
@@ -542,7 +546,10 @@ const setupOrgBrowser = async (
 };
 
 export const activate = async (extensionContext: vscode.ExtensionContext) => {
-  const activateTracker = new ActivationTracker(extensionContext, telemetryService);
+  const activateTracker = new ActivationTracker(
+    extensionContext,
+    telemetryService
+  );
   const rootWorkspacePath = getRootWorkspacePath();
   // Switch to the project directory so that the main @salesforce
   // node libraries work correctly.  @salesforce/core,
@@ -597,7 +604,9 @@ export const activate = async (extensionContext: vscode.ExtensionContext) => {
       telemetryService
     };
 
-    telemetryService.sendExtensionActivationEvent(activateTracker.activationInfo.startActivateHrTime);
+    telemetryService.sendExtensionActivationEvent(
+      activateTracker.activationInfo.startActivateHrTime
+    );
     MetricsReporter.extensionPackStatus();
     console.log('SFDX CLI Extension Activated (internal dev mode)');
     return internalApi;
@@ -716,7 +725,7 @@ const initializeProject = async (extensionContext: vscode.ExtensionContext) => {
   }
 };
 
-export const deactivate =  async (): Promise<void> => {
+export const deactivate = async (): Promise<void> => {
   console.log('SFDX CLI Extension Deactivated');
 
   // Send metric data.

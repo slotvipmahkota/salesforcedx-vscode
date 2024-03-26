@@ -60,6 +60,6 @@ export interface ILogger {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const getLoggerInstance = (instanceName: string): ILogger => {
+export const getLoggerInstance = (instanceName: string): ILogger => {
   return {} as ILogger;
 };
