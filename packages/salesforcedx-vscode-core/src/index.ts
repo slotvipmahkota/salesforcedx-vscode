@@ -388,6 +388,11 @@ const registerCommands = (
     renameLightningComponent
   );
 
+  const getLoggerInstanceCommand = vscode.commands.registerCommand(
+    'logger.get.instance',
+    getLoggerInstance
+  );
+
   return vscode.Disposable.from(
     renameLightningComponentCmd,
     diffFolder,
