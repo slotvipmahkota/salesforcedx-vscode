@@ -9,7 +9,7 @@ import {
   getTestResultsFolder,
   ActivationTracker
 } from '@salesforce/salesforcedx-utils-vscode';
-import { ServiceProvider } from '@salesforce/vscode-service-provider';
+import { ServiceProvider, ServiceType } from '@salesforce/vscode-service-provider';
 import * as path from 'path';
 import * as vscode from 'vscode';
 import { ApexLanguageClient } from './apexLanguageClient';
@@ -52,6 +52,12 @@ import { getTestOutlineProvider } from './views/testOutlineProvider';
 import { ApexTestRunner, TestRunType } from './views/testRunner';
 
 export const activate = async (extensionContext: vscode.ExtensionContext) => {
+  const logger = await ServiceProvider.getService(ServiceType.Logger, extensionContext.extension.id);
+  logger.debug('xyz');
+  const loggerAgain = ServiceProvider.has(ServiceType.Logger, extensionContext.extension.id);
+  logger.debug('again', loggerAgain);
+
+  // const logger: ILogger = ServiceProvider.getService);
   const activationTracker = new ActivationTracker(
     extensionContext,
     telemetryService

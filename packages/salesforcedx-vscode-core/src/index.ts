@@ -390,7 +390,7 @@ const registerCommands = (
   );
 
   const getLoggerInstanceCommand = vscode.commands.registerCommand(
-    'logger.get.instance',
+    'sf.vscode.core.logger.get.instance',
     getLoggerInstance
   );
 
