@@ -4,29 +4,24 @@
 
 #### salesforcedx-vscode-lwc
 
-- Add lightning__UrlAddressable enumeration ([PR #5328](https://github.com/forcedotcom/salesforcedx-vscode/pull/5328))
+- We made some changes under the hood. ([PR #5328](https://github.com/forcedotcom/salesforcedx-vscode/pull/5328))
 
 ## Fixed
 
 #### salesforcedx-apex-debugger
 
-- ISV Debugger no longer throws project configuration error when 'Launch Apex Debugger' button is clicked ([PR #5522](https://github.com/forcedotcom/salesforcedx-vscode/pull/5522))
-
 #### salesforcedx-utils
-
-- ISV Debugger no longer throws project configuration error when 'Launch Apex Debugger' button is clicked ([PR #5522](https://github.com/forcedotcom/salesforcedx-vscode/pull/5522))
 
 #### salesforcedx-utils-vscode
 
-- ISV Debugger no longer throws project configuration error when 'Launch Apex Debugger' button is clicked ([PR #5522](https://github.com/forcedotcom/salesforcedx-vscode/pull/5522))
-
 #### salesforcedx-vscode-apex-debugger
 
-- ISV Debugger no longer throws project configuration error when 'Launch Apex Debugger' button is clicked ([PR #5522](https://github.com/forcedotcom/salesforcedx-vscode/pull/5522))
+- ISV Debugger no longer throws a project configuration error when you click the **Launch Apex Debugger** button. ([PR #5522](https://github.com/forcedotcom/salesforcedx-vscode/pull/5522))
+
 
 #### salesforcedx-vscode-core
 
-- Bump apex-node apply json dangling comma bug ([PR #5537](https://github.com/forcedotcom/salesforcedx-vscode/pull/5537))
+- We made some changes under the hood. ([PR #5537](https://github.com/forcedotcom/salesforcedx-vscode/pull/5537))
 
 # 60.8.0 - April 10, 2024
 
