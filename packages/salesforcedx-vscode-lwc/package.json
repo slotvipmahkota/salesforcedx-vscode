@@ -372,7 +372,6 @@
     }
   ],
   "dependencies": {
-    "@salesforce/core": "7.3.1",
     "@salesforce/eslint-config-lwc": "3.5.1",
     "@salesforce/lightning-lsp-common": "4.8.0",
     "@salesforce/lwc-language-server": "4.8.0",
@@ -385,7 +384,8 @@
     "strip-ansi": "^5.2.0",
     "uuid": "^3.3.3",
     "vscode-extension-telemetry": "0.0.17",
-    "vscode-languageclient": "^5.2.1"
+    "vscode-languageclient": "^5.2.1",
+    "@salesforce/core-bundle": "^7.3.1"
   },
   "description": "Provides code-editing features for Lightning Web Components",
   "devDependencies": {
@@ -451,11 +451,11 @@
     ],
     "packageUpdates": {
       "dependencies": {
-        "@salesforce/core": "7.3.1",
         "@salesforce/lightning-lsp-common": "4.8.0",
         "@salesforce/lwc-language-server": "4.8.0",
-        "@salesforce/source-tracking": "6.0.4",
-        "applicationinsights": "1.0.7"
+        "applicationinsights": "1.0.7",
+        "@salesforce/core-bundle": "^7.3.1",
+        "@salesforce/source-tracking-bundle": "^6.0.4"
       },
       "devDependencies": {},
       "main": "dist/index.js",
@@ -474,7 +474,7 @@
     "url": "https://github.com/forcedotcom/salesforcedx-vscode"
   },
   "scripts": {
-    "bundle:extension": "esbuild ./src/index.ts  --bundle --outfile=dist/index.js --format=cjs --platform=node --loader:.node=file --external:vscode  --external:@salesforce/core --external:@salesforce/source-tracking --external:applicationinsights --external:@salesforce/lightning-lsp-common --external:@salesforce/lwc-language-serve --external:@babel/preset-typescript/package.json --minify",
+    "bundle:extension": "esbuild ./src/index.ts  --bundle --outfile=dist/index.js --format=cjs --platform=node --loader:.node=file --external:vscode  --external:@salesforce/core-bundle --external:@salesforce/source-tracking-bundle --external:applicationinsights --external:@salesforce/lightning-lsp-common --external:@salesforce/lwc-language-serve --external:@babel/preset-typescript/package.json --minify",
     "clean": "shx rm -rf node_modules && shx rm -rf out && shx rm -rf coverage && shx rm -rf .nyc_output",
     "compile": "tsc -p ./",
     "lint": "eslint .",

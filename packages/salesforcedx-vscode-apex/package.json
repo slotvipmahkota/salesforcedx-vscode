@@ -320,15 +320,15 @@
     }
   },
   "dependencies": {
-    "@salesforce/apex-node": "6.0.0",
     "@salesforce/apex-tmlanguage": "1.8.0",
-    "@salesforce/core": "7.3.1",
     "@salesforce/salesforcedx-utils-vscode": "60.11.0",
     "expand-home-dir": "0.0.3",
     "find-java-home": "0.2.0",
     "shelljs": "0.8.5",
     "vscode-extension-telemetry": "0.0.17",
-    "vscode-languageclient": "8.1.0"
+    "vscode-languageclient": "8.1.0",
+    "@salesforce/core-bundle": "^7.3.1",
+    "@salesforce/apex-node-bundle": "^6.0.0"
   },
   "description": "Provides code-editing features for the Apex programming language",
   "devDependencies": {
@@ -392,11 +392,11 @@
     "packageUpdates": {
       "dependencies": {
         "@salesforce/apex-tmlanguage": "1.4.0",
-        "@salesforce/core": "7.3.1",
-        "@salesforce/source-tracking": "6.0.4",
-        "@salesforce/templates": "^60.1.2",
         "applicationinsights": "1.0.7",
-        "shelljs": "0.8.5"
+        "shelljs": "0.8.5",
+        "@salesforce/core-bundle": "^7.3.1",
+        "@salesforce/templates-bundle": "^60.1.2",
+        "@salesforce/source-tracking-bundle": "^6.0.4"
       },
       "devDependencies": {},
       "languageServerDir": "dist",

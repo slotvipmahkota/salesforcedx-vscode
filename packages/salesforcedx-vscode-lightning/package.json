@@ -25,12 +25,12 @@
   ],
   "dependencies": {
     "@salesforce/aura-language-server": "4.8.0",
-    "@salesforce/core": "7.3.1",
     "@salesforce/lightning-lsp-common": "4.8.0",
     "@salesforce/salesforcedx-utils-vscode": "60.11.0",
     "applicationinsights": "1.0.7",
     "vscode-extension-telemetry": "0.0.17",
-    "vscode-languageclient": "^5.2.1"
+    "vscode-languageclient": "^5.2.1",
+    "@salesforce/core-bundle": "^7.3.1"
   },
   "devDependencies": {
     "@salesforce/salesforcedx-test-utils-vscode": "60.11.0",
@@ -64,7 +64,7 @@
     "salesforce.salesforcedx-vscode-core"
   ],
   "scripts": {
-    "bundle:extension": "esbuild ./src/index.ts  --bundle --outfile=dist/index.js --format=cjs --platform=node --external:vscode  --external:@salesforce/core --external:@salesforce/source-tracking --external:applicationinsights --external:@salesforce/lightning-lsp-common --external:@salesforce/aura-language-server --minify",
+    "bundle:extension": "esbuild ./src/index.ts  --bundle --outfile=dist/index.js --format=cjs --platform=node --external:vscode  --external:@salesforce/core-bundle --external:@salesforce/source-tracking-bundle --external:applicationinsights --external:@salesforce/lightning-lsp-common --external:@salesforce/aura-language-server --minify",
     "clean": "shx rm -rf node_modules && shx rm -rf out && shx rm -rf coverage && shx rm -rf .nyc_output",
     "compile": "tsc -p ./",
     "lint": "eslint .",
@@ -118,10 +118,10 @@
       ],
       "dependencies": {
         "applicationinsights": "1.0.7",
-        "@salesforce/core": "7.3.1",
-        "@salesforce/source-tracking": "6.0.4",
         "@salesforce/aura-language-server": "4.8.0",
-        "@salesforce/lightning-lsp-common": "4.8.0"
+        "@salesforce/lightning-lsp-common": "4.8.0",
+        "@salesforce/core-bundle": "^7.3.1",
+        "@salesforce/source-tracking-bundle": "^6.0.4"
       },
       "devDependencies": {}
     }

@@ -24,12 +24,9 @@
     "Other"
   ],
   "dependencies": {
-    "@salesforce/core": "7.3.1",
     "@salesforce/salesforcedx-sobjects-faux-generator": "60.11.0",
     "@salesforce/salesforcedx-utils-vscode": "60.11.0",
     "@salesforce/schemas": "^1.6.1",
-    "@salesforce/source-deploy-retrieve": "11.1.2",
-    "@salesforce/templates": "^60.1.2",
     "@salesforce/ts-types": "2.0.9",
     "@salesforce/vscode-service-provider": "1.0.4",
     "adm-zip": "0.5.10",
@@ -38,7 +35,10 @@
     "@jsforce/jsforce-node": "3.2.0",
     "rxjs": "^5.4.1",
     "sanitize-filename": "^1.6.1",
-    "shelljs": "0.8.5"
+    "shelljs": "0.8.5",
+    "@salesforce/core-bundle": "^7.3.1",
+    "@salesforce/templates-bundle": "^60.1.2",
+    "@salesforce/source-deploy-retrieve-bundle": "^11.1.2"
   },
   "devDependencies": {
     "@salesforce/salesforcedx-test-utils-vscode": "60.11.0",
@@ -97,17 +97,17 @@
       "main": "dist/index.js",
       "dependencies": {
         "applicationinsights": "1.0.7",
-        "@salesforce/core": "7.3.1",
-        "@salesforce/source-tracking": "6.0.4",
-        "@salesforce/templates": "^60.1.2",
-        "@salesforce/source-deploy-retrieve": "11.1.2",
-        "shelljs": "0.8.5"
+        "shelljs": "0.8.5",
+        "@salesforce/core-bundle": "^7.3.1",
+        "@salesforce/templates-bundle": "^60.1.2",
+        "@salesforce/source-tracking-bundle": "^6.0.4",
+        "@salesforce/source-deploy-retrieve-bundle": "^11.1.2"
       },
       "devDependencies": {}
     }
   },
   "scripts": {
-    "bundle:extension": "esbuild ./src/index.ts  --bundle --outfile=dist/index.js --format=cjs --platform=node --external:vscode  --external:@salesforce/core --external:applicationinsights --external:shelljs --external:@salesforce/source-tracking --external:@salesforce/templates --external:@salesforce/source-deploy-retrieve --minify",
+    "bundle:extension": "esbuild ./src/index.ts  --bundle --outfile=dist/index.js --format=cjs --platform=node --external:vscode  --external:@salesforce/core-bundle --external:applicationinsights --external:shelljs --external:@salesforce/source-tracking-bundle --external:@salesforce/templates-bundle --external:@salesforce/source-deploy-retrieve-bundle --minify",
     "vscode:prepublish": "npm prune --production",
     "vscode:package": "ts-node  ../../scripts/vsce-bundled-extension.ts",
     "vscode:sha256": "node ../../scripts/generate-sha256.js >> ../../SHA256",

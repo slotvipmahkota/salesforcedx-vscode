@@ -1,10 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 
+const packagesDir = './packages';
+
 // Update the references in package.json
 function updatePackageJson() {
   // Path to the packages directory
-  const packagesDir = './packages';
 
   // References Map
   const referencesMap = {
@@ -91,4 +92,70 @@ function updatePackageJson() {
   traverseDirectories(packagesDir);
 }
 
+function updateImports() {
+  const dirs = ['src', 'test'];
+  function replaceTextInFile(filePath) {
+    const data = fs.readFileSync(filePath, 'utf8');
+    let result = data.replace(
+      /'@salesforce\/core'/g,
+      "'@salesforce/core-bundle'"
+    );
+    result = result.replace(
+      /'@salesforce\/core\/(.+)'/g,
+      "'@salesforce/core-bundle'"
+    );
+    result = result.replace(
+      /'@salesforce\/source-deploy-retrieve/g,
+      "'@salesforce/source-deploy-retrieve-bundle"
+    );
+    result = result.replace(
+      /'@salesforce\/source-tracking/g,
+      "'@salesforce/source-tracking-bundle"
+    );
+    result = result.replace(
+      /'@salesforce\/templates/g,
+      "'@salesforce/templates-bundle"
+    );
+    result = result.replace(
+      /'@salesforce\/apex-node/g,
+      "'@salesforce/apex-node-bundle"
+    );
+
+    fs.writeFileSync(filePath, result, 'utf8');
+  }
+  function traverseDirectory(directory) {
+    fs.readdirSync(directory).forEach((file) => {
+      const fullPath = path.join(directory, file);
+      if (fs.lstatSync(fullPath).isDirectory()) {
+        traverseDirectory(fullPath);
+      } else if (path.extname(fullPath) === '.ts') {
+        replaceTextInFile(fullPath);
+      }
+    });
+  }
+
+  function traversePackages(directory) {
+    fs.readdir(directory, { withFileTypes: true }, (err, files) => {
+      if (err) {
+        console.error(`Error reading directory ${directory}: ${err}`);
+        return;
+      }
+
+      files.forEach(file => {
+        if (file.isDirectory()) {
+          dirs.forEach((dir) => {
+            const tsDirPath = path.join(directory, file.name, dir);
+            if (fs.existsSync(tsDirPath)) {
+              traverseDirectory(tsDirPath)
+            }
+          });
+        }
+      });
+    });
+  }
+  traversePackages(packagesDir);
+  console.log('imports updated successfully');
+}
+
 updatePackageJson();
+updateImports();
