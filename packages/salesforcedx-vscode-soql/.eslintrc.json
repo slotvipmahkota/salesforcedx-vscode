@@ -11,5 +11,8 @@
         "@typescript-eslint/restrict-plus-operands": "warn"
       }
     }
-  ]
+  ],
+  "env": {
+    "node": true
+  }
 }
