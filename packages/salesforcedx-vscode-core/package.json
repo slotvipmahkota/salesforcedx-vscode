@@ -98,9 +98,10 @@
       "main": "dist/index.js",
       "dependencies": {
         "applicationinsights": "1.0.7",
+        "@salesforce/core-bundle": "^7.3.1",
+        "@salesforce/source-tracking-bundle": "^6.0.4",
         "shelljs": "0.8.5",
         "@salesforce/templates-bundle": "^60.1.2",
-        "@salesforce/source-tracking-bundle": "^6.0.4",
         "@salesforce/source-deploy-retrieve-bundle": "^11.1.2"
       },
       "devDependencies": {}

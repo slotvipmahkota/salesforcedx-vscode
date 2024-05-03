@@ -15,6 +15,7 @@ const sharedConfig = {
   loader: { '.node': 'file' },
   external: [
     'vscode',
+    '@salesforce/core-bundle',
     '@salesforce/source-tracking-bundle',
     'applicationinsights',
     '@salesforce/lightning-lsp-common',
