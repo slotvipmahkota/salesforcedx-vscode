@@ -23,15 +23,6 @@ const sharedConfig = {
   minify: true
 };
 
-(async () => {
-  await build({
-    ...sharedConfig,
-    entryPoints: ['./src/index.ts'],
-    outfile: 'dist/index.js'
-  });
-})()
-.catch(() => process.exit(1));
-
 // copy core-bundle/lib/transformStream.js to dist if core-bundle is included
 const copyFiles = async (src, dest) => {
   try {
@@ -47,6 +38,13 @@ const srcPath = '../../node_modules/@salesforce/core-bundle/lib/transformStream.
 const destPath = './dist/transformStream.js';
 
 (async () => {
-  await copyFiles(srcPath, destPath);
+  await build({
+    ...sharedConfig,
+    entryPoints: ['./src/index.ts'],
+    outfile: 'dist/index.js'
+  });
 })()
+.then(async () => {
+  await copyFiles(srcPath, destPath);
+})
 .catch(() => process.exit(1));

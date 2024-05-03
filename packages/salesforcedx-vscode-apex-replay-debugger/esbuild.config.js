@@ -8,17 +8,16 @@
 const { build } = require('esbuild');
 const fs = require('fs').promises;
 
-// Configure and run the build process
 const sharedConfig = {
-  bundle: true,                     // Bundle all dependencies into one file
-  format: 'cjs',                    // Output format (CommonJS)
-  platform: 'node',                 // Platform target (Node.js)
-  minify: true,                     // Minify the output
+  bundle: true,
+  format: 'cjs',
+  platform: 'node',
   external: [
-      'vscode',
-      // '@salesforce/core-bundle',
-      '@salesforce/source-tracking-bundle'
-  ]
+    'vscode',
+    '@salesforce/source-tracking-bundle',
+    'applicationinsights'
+  ],
+  minify: true
 };
 
 // copy core-bundle/lib/transformStream.js to dist if core-bundle is included
