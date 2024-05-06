@@ -42,5 +42,5 @@ const destPath = './dist/transformStream.js';
     outfile: 'dist/index.js'
   });
 })().then(async () => {
-  await copyFiles(srcPath, destPath);
+  // await copyFiles(srcPath, destPath);
 }).catch(() => process.exit(1));
