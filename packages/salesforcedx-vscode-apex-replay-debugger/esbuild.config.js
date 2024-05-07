@@ -15,7 +15,6 @@ const sharedConfig = {
   external: [
     'vscode',
     '@salesforce/core-bundle',
-    '@salesforce/source-tracking-bundle',
     'applicationinsights'
   ],
   minify: true

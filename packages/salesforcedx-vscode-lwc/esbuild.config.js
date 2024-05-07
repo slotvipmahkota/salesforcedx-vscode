@@ -16,7 +16,6 @@ const sharedConfig = {
   external: [
     'vscode',
     '@salesforce/core-bundle',
-    '@salesforce/source-tracking-bundle',
     'applicationinsights',
     '@salesforce/lightning-lsp-common',
     '@salesforce/lwc-language-server',

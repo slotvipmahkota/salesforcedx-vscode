@@ -15,9 +15,9 @@ const sharedConfig = {
   platform: 'node',                 // Platform target (Node.js)
   minify: true,                     // Minify the output
   external: [
-      'vscode',
-      '@salesforce/core-bundle',
-      '@salesforce/source-tracking-bundle'
+    'vscode',
+    '@salesforce/core-bundle'
+    // '@salesforce/source-tracking-bundle'
   ]
 };
 

@@ -250,8 +250,7 @@
     "packageUpdates": {
       "dependencies": {
         "applicationinsights": "1.0.7",
-        "@salesforce/core-bundle": "^7.3.1",
-        "@salesforce/source-tracking-bundle": "^6.0.4"
+        "@salesforce/core-bundle": "^7.3.1"
       },
       "devDependencies": {},
       "main": "dist/index.js"

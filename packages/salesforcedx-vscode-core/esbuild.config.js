@@ -17,9 +17,9 @@ const sharedConfig = {
     'applicationinsights',
     'shelljs',
     '@salesforce/core-bundle',
-    '@salesforce/source-tracking-bundle',
-    '@salesforce/templates-bundle',
-    '@salesforce/source-deploy-retrieve-bundle'
+    // '@salesforce/source-tracking-bundle',
+    '@salesforce/templates-bundle'
+    // '@salesforce/source-deploy-retrieve-bundle'
   ],
   minify: true
 };
@@ -45,7 +45,7 @@ const sharedConfig = {
     outfile: 'dist/index.js'
   });
 })()
-.then(async () => {
-  // await copyFiles(srcPath, destPath);
-})
-.catch(() => process.exit(1));
+  .then(async () => {
+    // await copyFiles(srcPath, destPath);
+  })
+  .catch(() => process.exit(1));

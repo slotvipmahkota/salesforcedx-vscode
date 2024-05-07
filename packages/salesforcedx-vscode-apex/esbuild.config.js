@@ -16,9 +16,9 @@ const sharedConfig = {
     'vscode',
     '@salesforce/core-bundle',
     'applicationinsights',
-    'shelljs',
-    '@salesforce/source-deploy-retrieve-bundle',
-    '@salesforce/source-tracking-bundle'
+    'shelljs'
+    // '@salesforce/source-deploy-retrieve-bundle',
+    // '@salesforce/source-tracking-bundle'
   ],
   minify: true
 };
