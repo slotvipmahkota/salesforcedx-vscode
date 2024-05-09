@@ -61,6 +61,7 @@
     "cross-env": "5.2.0",
     "debounce": "^1.2.0",
     "esbuild": "^0.19.5",
+    "esbuild-plugin-pino": "^2.1.0",
     "eslint": "8.23.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-plugin-header": "3.1.1",
@@ -142,8 +143,7 @@
         "@salesforce/soql-builder-ui": "0.2.0",
         "@salesforce/soql-data-view": "0.1.0",
         "@salesforce/soql-language-server": "0.7.1",
-        "@salesforce/soql-model": "0.2.3",
-        "@salesforce/core-bundle": "^7.3.1"
+        "@salesforce/soql-model": "0.2.3"
       },
       "devDependencies": {}
     }
