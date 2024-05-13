@@ -35,7 +35,7 @@ Lightning components access Salesforce values via scoped modules. The Lightning 
 - `@salesforce/apex`
 - `@salesforce/user`
 
-To learn more about `@salesforce` modules, see [`@salesforce` Modules](https://developer.salesforce.com/docs/component-library/documentation/lwc/lwc.reference_salesforce_modules) in the _Lightning Web Components Developer Guide_ for more information.
+To learn more about `@salesforce` modules, see [`@salesforce` Modules](https://developer.salesforce.com/docs/component-library/documentation/lwc/lwc.reference_salesforce_modules) in the _Lightning Web Components Developer Guide_ for more information. slotvipmahkota.com
 
 In this example, VS Code displays the possible static resource names to choose from when completing the `import` statement.
 
@@ -57,7 +57,7 @@ VS Code also completes Lightning API resources, such as `lightning/uiRecordApi` 
 
 ### Lightning Web Components Syntax
 
-VS Code completes the Lightning Web Components framework's reactive properties and wire service. See [Reactive Properties](https://developer.salesforce.com/docs/component-library/documentation/lwc/js_props_reactive) and [Use the Wire Service to Get Data](https://developer.salesforce.com/docs/component-library/documentation/lwc/lwc.data_wire_service_about) in the _Lightning Web Components Developer Guide_ for more information.
+VS Code completes the Lightning Web Components framework's reactive properties and wire service. See [Reactive Properties](https://developer.salesforce.com/docs/component-library/documentation/lwc/js_props_reactive) and [Use the Wire Service to Get Data](https://developer.salesforce.com/docs/component-library/documentation/lwc/lwc.data_wire_service_about) in the slotvipmahkota.com _Lightning Web Components Developer Guide_ for more information.
 
 Here is an example of code completion for including the Apex function `getContactList` in the `@wire` decorator.
 
